@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="id" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Catatan · Hahaweek</title>
+    <meta name="description" content="Catatan pengamatan dan catatan perjalanan Hahaweek: narasi crypto dan AI vs bukti on-chain." />
+    <link rel="canonical" href="https://hahaweek.my.id/catatan/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hahaweek" />
+    <meta property="og:title" content="Catatan · Hahaweek" />
+    <meta property="og:description" content="Catatan pengamatan dan catatan perjalanan Hahaweek: narasi crypto dan AI vs bukti on-chain." />
+    <meta property="og:url" content="https://hahaweek.my.id/catatan/" />
+    <meta property="og:image" content="https://hahaweek.my.id/og-image.jpg" />
+    <meta property="og:locale" content="id_ID" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@haha_week" />
+    <meta name="twitter:title" content="Catatan · Hahaweek" />
+    <meta name="twitter:description" content="Catatan pengamatan dan catatan perjalanan Hahaweek: narasi crypto dan AI vs bukti on-chain." />
+    <meta name="twitter:image" content="https://hahaweek.my.id/og-image.jpg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&display=swap"
+    />
+    <link rel="stylesheet" href="/hark.css" />
+    <link rel="stylesheet" href="/hark-hero.css" />
+    <style>
+      /* Site-wide: always dark, one lime accent */
+      :root, :root[data-theme] {
+        color-scheme: dark;
+        --x-accent: #b6ff3b;
+        --x-on-accent: #1d1d1f;
+        --x-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+        --sans: "Geist", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+        --hero-surface: var(--fill-tertiary);
+        --hero-text: var(--text-primary);
+        --hero-text-muted: var(--text-secondary);
+      }
+      :focus-visible { outline-color: var(--x-accent); }
+      .main p, .main li { line-height: 1.7; }
+      .x-mono { font-family: var(--x-mono); }
+
+      /* Top nav */
+      .x-nav {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        margin-inline: calc(var(--gutter) * -1);
+        padding: 0 var(--gutter);
+        background: color-mix(in srgb, var(--fill-primary-on) 88%, transparent);
+        -webkit-backdrop-filter: var(--hark-blur);
+        backdrop-filter: var(--hark-blur);
+        border-bottom: 1px solid var(--stroke-secondary);
+      }
+      .x-nav__bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; }
+      .x-logo { font: var(--weight-bold) var(--size-heading)/1 var(--sans); color: var(--text-primary); text-decoration: none; display: inline-flex; align-items: center; min-height: var(--tap); }
+      .x-logo span { color: var(--x-accent); }
+      .x-menu { display: flex; gap: 4px; margin: 0; padding: 0; list-style: none; }
+      .x-menu a {
+        display: inline-flex; align-items: center; min-height: 36px; padding: 6px 12px;
+        border-radius: var(--r-pill); font: var(--type-label); color: var(--text-secondary); text-decoration: none;
+      }
+      .x-menu a:hover { color: var(--text-primary); background: var(--hover-wash); }
+      .x-menu a[aria-current="page"] { color: var(--x-on-accent); background: var(--x-accent); }
+      .x-burger {
+        display: none; width: var(--tap); height: var(--tap); place-items: center;
+        border: 1px solid var(--stroke-primary); border-radius: var(--r-s);
+        background: transparent; color: var(--text-primary); cursor: pointer;
+      }
+      .x-burger span, .x-burger span::before, .x-burger span::after {
+        display: block; width: 18px; height: 1.5px; background: currentColor; position: relative; content: "";
+      }
+      .x-burger span::before { position: absolute; top: -6px; }
+      .x-burger span::after { position: absolute; top: 6px; }
+      .x-nav.is-open .x-burger span { background: transparent; }
+      .x-nav.is-open .x-burger span::before { top: 0; transform: rotate(45deg); background: var(--text-primary); }
+      .x-nav.is-open .x-burger span::after { top: 0; transform: rotate(-45deg); background: var(--text-primary); }
+      @media (max-width: 759px) {
+        .x-burger { display: grid; }
+        .x-menu {
+          display: none; flex-direction: column; gap: 4px;
+          margin-inline: calc(var(--gutter) * -1); padding: 8px var(--gutter) 20px;
+          border-top: 1px solid var(--stroke-secondary);
+        }
+        .x-nav.is-open .x-menu { display: flex; }
+        .x-menu a { display: flex; min-height: var(--tap); padding: 10px 14px; border-radius: var(--r-s); font-size: var(--size-body); }
+      }
+
+      /* Accent pieces */
+      .x-eyebrow { font: var(--weight-regular) var(--size-caption)/1.3 var(--x-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--x-accent); }
+      .hero .hero__eyebrow.x-eyebrow { background: transparent; border: 0; padding: 0; -webkit-backdrop-filter: none; backdrop-filter: none; }
+      .hero::after { display: none; }
+      .hero { box-shadow: none; border: 1px solid var(--stroke-secondary); border-radius: var(--r-l); }
+      .hero__sub { max-width: 52ch; font-weight: var(--weight-regular); line-height: 1.6; color: var(--text-secondary); }
+      .btn.x-accent { background: var(--x-accent); color: var(--x-on-accent); border-color: var(--x-accent); font-weight: var(--weight-bold); }
+      .btn.x-accent:hover { box-shadow: inset 0 0 0 100px rgb(0 0 0 / 0.08); }
+      .btn.x-accent[target="_blank"]::after { color: var(--x-on-accent); }
+      .x-link { color: var(--x-accent); font: var(--weight-medium) var(--size-small)/1.3 var(--x-mono); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; min-height: var(--tap); }
+      .x-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+      /* Filter chips */
+      .x-filters { display: flex; flex-wrap: wrap; gap: 8px; }
+      .x-filter {
+        min-height: var(--tap); padding: 6px 16px; border-radius: var(--r-pill);
+        border: 1px solid var(--stroke-primary); background: transparent; color: var(--text-secondary);
+        font: var(--weight-regular) var(--size-small)/1 var(--x-mono); cursor: pointer;
+      }
+      .x-filter:hover { color: var(--text-primary); background: var(--hover-wash); }
+      .x-filter[aria-pressed="true"] { background: var(--x-accent); border-color: var(--x-accent); color: var(--x-on-accent); }
+
+      /* Article cards */
+      .x-post { display: flex; flex-direction: column; border: 1px solid var(--stroke-secondary); }
+      .x-post[hidden] { display: none; }
+      .x-post .cards__media { aspect-ratio: 16 / 9; max-height: none; padding: 0; overflow: hidden; }
+      .x-post .cards__media img { width: 100%; height: 100%; object-fit: cover; }
+      .x-tile { font: var(--weight-regular) clamp(32px, 6vw, 44px)/1 var(--x-mono); letter-spacing: 0.12em; color: var(--x-accent); }
+      .x-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 10px; }
+      .x-tag { padding: 3px 10px; border-radius: var(--r-pill); background: var(--x-accent); color: var(--x-on-accent); font: var(--weight-regular) var(--size-caption)/1.3 var(--x-mono); }
+      .x-date { font: var(--weight-regular) var(--size-caption)/1.3 var(--x-mono); color: var(--text-secondary); }
+      .x-post h3 a { color: inherit; text-decoration: none; }
+      .x-post h3 a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--x-accent); }
+      .x-post p { color: var(--text-secondary); }
+      .x-post .x-link { margin-top: auto; padding-top: 8px; }
+      .x-empty { color: var(--text-secondary); }
+
+      /* Subscribe card */
+      .x-sub { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; padding: 24px; border-radius: var(--r-m); background: var(--fill-tertiary); border: 1px solid var(--stroke-secondary); }
+      .x-sub h2 { font: var(--type-heading); margin-top: 6px; }
+
+      /* Footer */
+      .x-foot { display: grid; gap: 16px; }
+      .x-foot nav a { font-family: var(--x-mono); font-weight: var(--weight-regular); }
+      .x-foot nav a:hover { color: var(--x-accent); }
+      .x-foot__fine { font-size: var(--size-caption); line-height: 1.6; }
+      @media (min-width: 760px) { .x-foot { grid-template-columns: 1fr auto; } .x-foot__fine { grid-column: 1 / -1; } }
+    </style>
+  </head>
+  <body>
+    <div class="page" id="top">
+      <header class="x-nav" id="site-nav">
+        <div class="x-nav__bar">
+          <a class="x-logo" href="/">Hahaweek<span>.</span></a>
+          <button class="x-burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Buka menu"><span></span></button>
+        </div>
+        <ul class="x-menu" id="menu">
+          <li><a href="/">Beranda</a></li>
+          <li><a href="/tentang/">Tentang</a></li>
+          <li><a href="/eksperimen/">Eksperimen</a></li>
+          <li><a href="/catatan/" aria-current="page">Catatan</a></li>
+          <li><a href="/kontak/">Kontak</a></li>
+        </ul>
+      </header>
+
+      <main class="main">
+        <section class="hero">
+          <div class="hero__copy">
+            <p class="hero__eyebrow x-eyebrow">Catatan</p>
+            <h1>Narasi vs bukti, dicatat satu per satu.</h1>
+            <p class="hero__sub">
+              Dua jenis tulisan: Catatan Observasi (bedah narasi yang ramai) dan Catatan Perjalanan (log
+              eksperimen, error-error juga).
+            </p>
+            <div class="x-filters" role="group" aria-label="Filter kategori">
+              <button class="x-filter" type="button" data-filter="semua" aria-pressed="true">Semua</button>
+              <button class="x-filter" type="button" data-filter="observasi" aria-pressed="false">Observasi</button>
+              <button class="x-filter" type="button" data-filter="perjalanan" aria-pressed="false">Perjalanan</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="tulisan" aria-labelledby="tulisan-h">
+          <div class="head">
+            <p class="head__eyebrow x-eyebrow">Terbaru dulu</p>
+            <h2 id="tulisan-h">Semua tulisan</h2>
+          </div>
+          <div class="cards" id="posts">
+            <div class="x-post" data-cat="observasi">
+              <figure class="cards__media">
+                <img src="/agentic-hero.jpg" alt="Thumbnail Catatan Observasi #1: Binance Agentic Wallet" />
+              </figure>
+              <p class="x-meta">
+                <span class="x-tag">Observasi</span>
+                <time class="x-date" datetime="2026-10-24">24 Oktober 2026</time>
+              </p>
+              <h3><a href="/catatan/observasi-1/">Narasi vs bukti: benarkah AI pegang dompet sendiri?</a></h3>
+              <p>Aku bedah Binance Agentic Wallet dari dokumen resmi dan riset keamanan. Hasilnya: AI-nya justru dikurung ketat.</p>
+              <a class="x-link" href="/catatan/observasi-1/" aria-label="Baca: Narasi vs bukti, benarkah AI pegang dompet sendiri?">Baca →</a>
+            </div>
+            <div class="x-post" data-cat="perjalanan">
+              <figure class="cards__media" aria-hidden="true">
+                <span class="x-tile">RESET</span>
+              </figure>
+              <p class="x-meta">
+                <span class="x-tag">Perjalanan</span>
+                <time class="x-date" datetime="2026-10-24">24 Oktober 2026</time>
+              </p>
+              <h3><a href="/eksperimen/#catatan">Satu malam, dua error konyol, agent akhirnya jalan</a></h3>
+              <p>Setup mining RESET di Termux, dua error yang bikin ketawa, lalu agent jalan jam 04.56 WIB.</p>
+              <a class="x-link" href="/eksperimen/#catatan" aria-label="Baca: Satu malam, dua error konyol, agent akhirnya jalan">Baca →</a>
+            </div>
+          </div>
+        </section>
+
+        <aside class="x-sub" aria-label="Ikuti">
+          <div>
+            <p class="x-eyebrow">Biar nggak ketinggalan</p>
+            <h2>Catatan baru diumumkan duluan di X.</h2>
+          </div>
+          <a class="btn x-accent" href="https://x.com/haha_week" target="_blank" rel="noopener">Ikuti di X</a>
+        </aside>
+      </main>
+
+      <footer class="foot x-foot">
+        <p><strong>© 2026 Hahaweek</strong> · hahaweek.my.id</p>
+        <nav aria-label="Tautan">
+          <a href="https://x.com/haha_week" target="_blank" rel="noopener">X</a>
+          <a href="https://github.com/littlepxyek-crypto" target="_blank" rel="noopener">GitHub</a>
+          <a href="/kontak/">Kontak</a>
+        </nav>
+        <p class="x-foot__fine">Konten ini catatan pengamatan dan eksperimen pribadi, bukan saran keuangan.</p>
+      </footer>
+    </div>
+    <script src="/hark.js"></script>
+    <script>
+      (function () {
+        document.documentElement.setAttribute("data-theme", "dark");
+        var nav = document.getElementById("site-nav"), burger = document.getElementById("burger");
+        burger.addEventListener("click", function () {
+          var open = nav.classList.toggle("is-open");
+          burger.setAttribute("aria-expanded", open ? "true" : "false");
+          burger.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && nav.classList.contains("is-open")) { burger.click(); burger.focus(); }
+        });
+        var buttons = [].slice.call(document.querySelectorAll(".x-filter"));
+        var posts = [].slice.call(document.querySelectorAll(".x-post"));
+        buttons.forEach(function (b) {
+          b.addEventListener("click", function () {
+            var f = b.getAttribute("data-filter");
+            buttons.forEach(function (o) { o.setAttribute("aria-pressed", o === b ? "true" : "false"); });
+            posts.forEach(function (p) { p.hidden = !(f === "semua" || p.getAttribute("data-cat") === f); });
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
