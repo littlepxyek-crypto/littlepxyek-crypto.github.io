@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="id" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kontak · Hahaweek</title>
+    <meta name="description" content="Cara menghubungi Hahaweek: DM di X @haha_week atau lewat GitHub." />
+    <link rel="canonical" href="https://hahaweek.my.id/kontak/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hahaweek" />
+    <meta property="og:title" content="Kontak · Hahaweek" />
+    <meta property="og:description" content="Cara menghubungi Hahaweek: DM di X @haha_week atau lewat GitHub." />
+    <meta property="og:url" content="https://hahaweek.my.id/kontak/" />
+    <meta property="og:image" content="https://hahaweek.my.id/og-image.jpg" />
+    <meta property="og:locale" content="id_ID" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@haha_week" />
+    <meta name="twitter:title" content="Kontak · Hahaweek" />
+    <meta name="twitter:description" content="Cara menghubungi Hahaweek: DM di X @haha_week atau lewat GitHub." />
+    <meta name="twitter:image" content="https://hahaweek.my.id/og-image.jpg" />
+    <meta name="theme-color" content="#1d1d1f" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&display=swap"
+    />
+    <link rel="stylesheet" href="/hark.css" />
+    <link rel="stylesheet" href="/hark-hero.css" />
+    <style>
+      /* Site-wide departure: always dark, one lime accent, mono labels. */
+      html:root,
+      html:root[data-theme] { color-scheme: dark; }
+      :root {
+        --x-accent: #b6ff3b;
+        --x-on-accent: #1d1d1f;
+        --x-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+      body { line-height: 1.7; }
+
+      /* Top navigation */
+      .x-nav {
+        position: sticky;
+        top: calc(env(safe-area-inset-top, 0px) + 12px);
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 6px 6px 6px 20px;
+        border-radius: var(--r-pill);
+        background: var(--mat-regular);
+        -webkit-backdrop-filter: var(--hark-blur);
+        backdrop-filter: var(--hark-blur);
+        border: 1px solid var(--stroke-primary);
+        box-shadow: var(--hark-shadow);
+      }
+      .x-logo {
+        font: var(--weight-bold) var(--size-body)/1 var(--sans);
+        color: var(--text-primary);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        min-height: var(--tap);
+      }
+      .x-menu { display: flex; gap: 2px; margin: 0; padding: 0; list-style: none; }
+      .x-menu a {
+        display: flex;
+        align-items: center;
+        min-height: 40px;
+        padding: 0 14px;
+        border-radius: var(--r-pill);
+        font: var(--type-label);
+        color: var(--text-secondary);
+        text-decoration: none;
+      }
+      .x-menu a:hover { color: var(--text-primary); background: var(--hover-wash); }
+      .x-menu a[aria-current="page"] { background: var(--x-accent); color: var(--x-on-accent); }
+      .x-burger {
+        display: none;
+        width: var(--tap);
+        height: var(--tap);
+        place-items: center;
+        border: 1px solid var(--stroke-primary);
+        border-radius: 50%;
+        background: transparent;
+        color: var(--text-primary);
+        cursor: pointer;
+      }
+      .x-burger span, .x-burger span::before, .x-burger span::after {
+        display: block; width: 16px; height: 1.5px; background: currentColor; border-radius: 2px; position: relative; content: "";
+      }
+      .x-burger span::before { position: absolute; top: -5px; }
+      .x-burger span::after { position: absolute; top: 5px; }
+      .x-burger[aria-expanded="true"] span { background: transparent; }
+      .x-burger[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); background: var(--text-primary); }
+      .x-burger[aria-expanded="true"] span::after { top: 0; transform: rotate(-45deg); background: var(--text-primary); }
+      @media (max-width: 719px) {
+        .x-nav { border-radius: var(--r-l); flex-wrap: wrap; padding: 6px 6px 6px 18px; }
+        .x-burger { display: grid; }
+        .x-menu { display: none; flex-basis: 100%; flex-direction: column; gap: 4px; padding: 8px 12px 12px 0; }
+        .x-nav.is-open .x-menu { display: flex; }
+        .x-menu a { min-height: var(--tap); padding: 0 16px; font-size: var(--size-body); }
+      }
+
+      /* Compact header */
+      .x-hero {
+        padding: clamp(36px, 6vw, 64px) clamp(20px, 4vw, 40px);
+        border-radius: var(--r-xl);
+        background: var(--fill-tertiary);
+        display: grid;
+        gap: 12px;
+      }
+      .x-eyebrow {
+        font: var(--weight-regular) var(--size-caption)/1.4 var(--x-mono);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--x-accent);
+      }
+      .x-hero h1 { font: var(--type-display); max-width: 22ch; }
+      .x-hero p.x-sub { font-size: var(--size-prose); line-height: 1.7; color: var(--text-secondary); max-width: 52ch; }
+
+      /* Contact cards */
+      .x-card { display: grid; gap: 10px; align-content: start; }
+      .cards .x-card h3 { margin-bottom: 0; font-family: var(--x-mono); font-weight: var(--weight-regular); word-break: break-word; }
+      .x-card p { color: var(--text-secondary); line-height: 1.7; }
+      .x-card .x-btn { justify-self: start; margin-top: 6px; }
+      .x-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: var(--tap);
+        padding: 0 18px;
+        border-radius: var(--r-s);
+        background: var(--x-accent);
+        color: var(--x-on-accent);
+        font: var(--type-label);
+        text-decoration: none;
+      }
+      .x-btn:hover { box-shadow: inset 0 0 0 100px rgb(29 29 31 / 0.1); }
+      .x-btn--ghost { background: transparent; color: var(--x-accent); border: 1px solid var(--x-accent); }
+      .x-btn--ghost:hover { box-shadow: inset 0 0 0 100px rgb(182 255 59 / 0.1); }
+      .x-btn :focus-visible, .x-btn:focus-visible { outline-color: var(--x-accent); }
+      .x-btn[target="_blank"]::after { content: "\2197"; font-size: 12px; }
+
+      /* Safety list */
+      .x-rules { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+      .x-rules li {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 12px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--stroke-secondary);
+        line-height: 1.7;
+      }
+      .x-rules li:last-child { border-bottom: 0; padding-bottom: 0; }
+      .x-rules li::before { content: "!"; font: var(--weight-regular) var(--size-caption)/1 var(--x-mono); width: 22px; height: 22px; margin-top: 3px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--x-accent); color: var(--x-accent); }
+      .x-rules a, .x-link { color: var(--x-accent); text-underline-offset: 3px; }
+      @media (max-width: 599px) {
+        .x-rules a, .x-link { display: inline-flex; align-items: center; min-height: var(--tap); margin: -10px 0; vertical-align: middle; }
+      }
+
+      /* Footer */
+      .x-foot { display: grid; gap: 16px; padding-top: 24px; border-top: 1px solid var(--stroke-secondary); font-size: var(--size-small); color: var(--text-secondary); line-height: 1.7; }
+      .x-foot nav { display: flex; flex-wrap: wrap; gap: 6px; }
+      .x-foot nav a {
+        display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap); min-width: var(--tap);
+        padding: 0 14px; border-radius: var(--r-pill);
+        background: var(--fill-tertiary); color: var(--x-accent);
+        font: var(--weight-regular) var(--size-caption)/1 var(--x-mono); text-decoration: none;
+      }
+      .x-foot nav a:hover { box-shadow: inset 0 0 0 100px var(--hover-wash); }
+      .x-foot .x-copy { font-family: var(--x-mono); font-size: var(--size-caption); }
+    </style>
+  </head>
+  <body>
+    <div class="page" id="top">
+      <header class="x-nav" id="x-nav">
+        <a class="x-logo" href="/">Hahaweek</a>
+        <button class="x-burger" type="button" aria-expanded="false" aria-controls="x-menu" aria-label="Buka menu"><span></span></button>
+        <ul class="x-menu" id="x-menu">
+          <li><a href="/">Beranda</a></li>
+          <li><a href="/tentang/">Tentang</a></li>
+          <li><a href="/eksperimen/">Eksperimen</a></li>
+          <li><a href="/catatan/">Catatan</a></li>
+          <li><a href="/kontak/" aria-current="page">Kontak</a></li>
+        </ul>
+      </header>
+
+      <main class="main">
+        <section class="x-hero">
+          <p class="x-eyebrow">Kontak</p>
+          <h1>Mau ngobrol, koreksi, atau kasih tips narasi?</h1>
+          <p class="x-sub">Paling cepat lewat X. Aku baca semua DM, balasnya mungkin santai.</p>
+        </section>
+
+        <div class="cards">
+          <div class="x-card">
+            <p class="x-eyebrow">X · paling cepat</p>
+            <h3>@haha_week</h3>
+            <p>Buka profilnya, lalu kirim DM.</p>
+            <a class="x-btn" href="https://x.com/haha_week" target="_blank" rel="noopener">Kirim DM di X</a>
+          </div>
+          <div class="x-card">
+            <p class="x-eyebrow">GitHub</p>
+            <h3>littlepxyek-crypto</h3>
+            <p>Untuk koreksi panduan atau laporan error.</p>
+            <a class="x-btn x-btn--ghost" href="https://github.com/littlepxyek-crypto" target="_blank" rel="noopener">Buka GitHub</a>
+          </div>
+        </div>
+
+        <div class="cards">
+          <div class="x-card">
+            <p class="x-eyebrow">Sebelum kirim pesan</p>
+            <ul class="x-rules">
+              <li>Aku tidak pernah minta password, seed phrase, keystore, atau API key.</li>
+              <li>Aku tidak menawarkan investasi atau jasa kelola dana.</li>
+              <li>Hati-hati akun palsu yang mengaku Hahaweek; akun resminya cuma <a href="https://x.com/haha_week" target="_blank" rel="noopener">@haha_week</a>.</li>
+            </ul>
+          </div>
+        </div>
+      </main>
+
+      <footer class="x-foot">
+        <nav aria-label="Tautan footer">
+          <a href="https://x.com/haha_week" target="_blank" rel="noopener">X</a>
+          <a href="https://github.com/littlepxyek-crypto" target="_blank" rel="noopener">GitHub</a>
+          <a href="/kontak/">Kontak</a>
+        </nav>
+        <p class="x-copy">© 2026 Hahaweek · hahaweek.my.id</p>
+        <p>Konten ini catatan pengamatan dan eksperimen pribadi, bukan saran keuangan.</p>
+      </footer>
+    </div>
+    <script src="/hark.js"></script>
+    <script>
+      (function () {
+        var nav = document.getElementById("x-nav");
+        var btn = nav.querySelector(".x-burger");
+        function set(open) {
+          nav.classList.toggle("is-open", open);
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+          btn.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
+        }
+        btn.addEventListener("click", function () { set(btn.getAttribute("aria-expanded") !== "true"); });
+        document.addEventListener("keydown", function (e) { if (e.key === "Escape") set(false); });
+        window.matchMedia("(min-width: 720px)").addEventListener("change", function (m) { if (m.matches) set(false); });
+      })();
+    </script>
+  </body>
+</html>
