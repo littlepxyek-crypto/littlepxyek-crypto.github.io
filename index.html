@@ -135,7 +135,6 @@
       .x-progress {
         display: grid;
         gap: 10px;
-        margin-top: 24px;
         padding: 16px 18px;
         border-radius: var(--r-m);
         background: var(--fill-tertiary);
@@ -156,6 +155,96 @@
       .x-progress__cursor { position: absolute; top: 2px; bottom: 2px; width: 6px; margin-left: 3px; border-radius: 2px; background: var(--x-accent); animation: x-blink 1.1s steps(1) infinite; }
       .x-progress__scale { display: flex; justify-content: space-between; font-family: var(--x-mono); font-size: var(--size-caption); color: var(--text-secondary); }
       @keyframes x-blink { 50% { opacity: 0; } }
+
+      /* ---------- Layout: phone, tablet, desktop ---------- */
+      :root { --page-max: 1100px; --gutter: clamp(16px, 4.5vw, 32px); }
+      html, body { overflow-x: clip; }
+      .main { overflow-wrap: break-word; }
+      .head h2 { text-wrap: balance; max-width: 30ch; }
+      .prose, .fineprint { max-width: 70ch; }
+      .btn { justify-content: center; text-align: center; overflow-wrap: anywhere; }
+      .checklist__item small, .step code, .checklist__note { overflow-wrap: anywhere; }
+      .step :not(.x-code) > code { font-family: var(--x-mono); font-size: var(--size-meta); color: var(--x-accent); }
+
+      /* Stats: tiles, one row from tablet up, two columns on phones. */
+      .stats { grid-auto-flow: row; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding-top: 0; }
+      .stats > .stat, .stats > .stat:first-child {
+        grid-column: auto;
+        grid-template-columns: none;
+        align-items: start;
+        gap: 6px;
+        padding: 16px 18px;
+        border: 1px solid var(--stroke-secondary);
+        border-radius: var(--r-m);
+        background: var(--fill-tertiary);
+      }
+      .stat__fig { white-space: normal; }
+
+      /* Guide: steps as cards, two columns from tablet up. */
+      .steps { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+      .steps > .step, .steps > .step:last-child {
+        grid-template-columns: minmax(0, 1fr);
+        align-content: start;
+        gap: 12px;
+        padding: 20px;
+        border: 1px solid var(--stroke-secondary);
+        border-radius: var(--r-m);
+        background: var(--fill-tertiary);
+      }
+      .steps .step__intro { display: flex; align-items: baseline; gap: 14px; }
+      .steps .step__num { font-size: 40px; }
+      .steps .step__eyebrow { margin-top: 0; }
+      .steps .step h3 { margin-bottom: 8px; }
+      .step .x-code { background: var(--fill-primary-on); }
+      @media (min-width: 720px) {
+        .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+        .steps > .step:last-child:nth-child(odd) { grid-column: 1 / -1; }
+        .steps > .step, .steps > .step:last-child { padding: 24px; }
+      }
+
+      /* Journey log: a narrower date column on wide screens. */
+      @media (min-width: 901px) { .timeline { grid-template-columns: 150px minmax(0, 1fr) auto; } }
+
+      /* Hero: callout in the flow below the copy until there is room beside it. */
+      .hero__copy { text-shadow: 0 1px 14px rgb(5 8 6 / 0.85); }
+      @media (max-width: 1023px) {
+        .hero { flex-direction: column; justify-content: flex-end; align-items: stretch; min-height: 0; }
+        .hero__copy { padding-top: clamp(200px, 40vw, 300px); padding-bottom: 24px; }
+        .hero > .callout { position: static; width: auto; max-width: none; margin: 0 12px 12px; }
+        .hero::after {
+          background: linear-gradient(to top, var(--hero-scrim-strong) 0%, var(--hero-scrim-strong) 45%, var(--hero-scrim-soft) 75%, transparent 100%);
+        }
+      }
+      @media (min-width: 761px) and (max-width: 1023px) {
+        .hero > .callout { margin: 0 24px 24px; }
+        .hero > .callout .links { flex-direction: row; }
+      }
+      @media (min-width: 1024px) {
+        .hero { min-height: clamp(460px, 60vh, 580px); }
+        .hero__copy { max-width: min(40rem, calc(100% - 380px)); }
+      }
+
+      /* Phones. */
+      @media (max-width: 760px) {
+        .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+        .stats > .stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
+        .stats > .stat, .stats > .stat:first-child { padding: 14px; }
+      }
+      @media (max-width: 599px) {
+        .links { flex-direction: column; align-items: stretch; gap: 10px; }
+        .links .btn { width: 100%; min-height: var(--tap); }
+        .callout .links { justify-self: stretch; }
+        .hero__copy { padding-inline: 20px; }
+        .x-progress { padding: 14px; }
+        .steps > .step, .steps > .step:last-child { padding: 18px 16px; }
+        .x-code { padding-left: 12px; }
+        .foot { flex-direction: column; align-items: stretch; }
+        .foot > .links { width: 100%; }
+        .foot .badge { align-self: flex-start; }
+      }
+      @media (max-width: 430px) {
+        .seg a { padding-inline: 10px; font-size: var(--size-meta); min-width: 48px; min-height: 48px; justify-content: center; }
+      }
       @media (prefers-reduced-motion: reduce) {
         .hero h1::after, .x-progress__cursor { animation: none; }
       }
@@ -210,7 +299,7 @@
             <p>RESET itu eksperimen dari Trac Network. Para AI agent berbagi satu "Mine" koin yang tumbuh tiap blok Bitcoin.</p>
             <p>Tiap jam agent mengklaim bagian. Yang adil dibayar duluan. Yang serakah kena strike.</p>
           </div>
-          <section class="stats" style="margin-top: 24px">
+          <section class="stats">
             <div class="stat"><span class="stat__fig">3,125</span><span class="stat__label">Koin per blok Bitcoin</span></div>
             <div class="stat"><span class="stat__fig">0 RESET</span><span class="stat__label">Saldo sekarang</span></div>
             <div class="stat"><span class="stat__fig">0,1 RESET</span><span class="stat__label">Perlu dikunci dulu</span></div>
@@ -227,7 +316,7 @@
             <div class="x-progress__scale" aria-hidden="true"><span>0</span><span>0,05</span><span>0,1</span></div>
             <p class="fineprint">Status per 24 Oktober 2026, <span class="x-mono">15.22</span> WIB. Ronde <span class="x-mono">534</span>.</p>
           </div>
-          <ul class="checklist" style="margin-top: 24px">
+          <ul class="checklist">
             <li class="is-done">
               <span class="checklist__item">Agent jalan di HP Android <small>Lewat Termux</small></span
               ><span class="chip">Jalan</span><span class="checklist__note">Sejak 04.56 WIB</span>
@@ -241,7 +330,7 @@
               ><span class="chip">Menunggu</span><span class="checklist__note">Saldo masih 0</span>
             </li>
           </ul>
-          <div class="links" style="margin-top: 20px">
+          <div class="links">
             <a class="btn" href="https://reset.openmayhem.ai/v1/account/391a55668c8c5d38d2f6e16ec31338276cb354bd5cdff196ab671bf1d1d3aa3e" target="_blank" rel="noopener">Cek saldo wallet (data jaringan)</a>
             <a class="btn" href="https://github.com/Trac-Systems/reset" target="_blank" rel="noopener">Repo RESET</a>
           </div>
@@ -346,7 +435,7 @@
               </div>
             </article>
           </div>
-          <aside class="callout" aria-label="Peringatan" style="margin-top: 16px">
+          <aside class="callout" aria-label="Peringatan">
             <p class="callout__head">Peringatan</p>
             <p class="callout__lead"><strong>Jangan pernah bagikan password wallet, keystore, atau API key.</strong></p>
             <p class="fineprint">Ini eksperimen, tanpa listing bursa dan tanpa janji nilai. Koin "#reset" di Coinbase itu koin lain.</p>
