@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="id" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tentang · Hahaweek</title>
+    <meta name="description" content="Siapa Hahaweek: Internet Observer dan Digital Anthropologist yang memetakan narasi crypto dan AI ke bukti on-chain." />
+    <link rel="canonical" href="https://hahaweek.my.id/tentang/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hahaweek" />
+    <meta property="og:title" content="Tentang · Hahaweek" />
+    <meta property="og:description" content="Siapa Hahaweek: Internet Observer dan Digital Anthropologist yang memetakan narasi crypto dan AI ke bukti on-chain." />
+    <meta property="og:url" content="https://hahaweek.my.id/tentang/" />
+    <meta property="og:image" content="https://hahaweek.my.id/og-image.jpg" />
+    <meta property="og:locale" content="id_ID" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@haha_week" />
+    <meta name="twitter:title" content="Tentang · Hahaweek" />
+    <meta name="twitter:description" content="Siapa Hahaweek: Internet Observer dan Digital Anthropologist yang memetakan narasi crypto dan AI ke bukti on-chain." />
+    <meta name="twitter:image" content="https://hahaweek.my.id/og-image.jpg" />
+    <meta name="theme-color" content="#1d1d1f" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&display=swap"
+    />
+    <link rel="stylesheet" href="/hark.css" />
+    <link rel="stylesheet" href="/hark-hero.css" />
+    <style>
+      /* Site-wide departure: always dark, one lime accent, mono labels. */
+      :root, :root[data-theme="light"] {
+        color-scheme: dark;
+        --x-accent: #b6ff3b;
+        --x-on-accent: #1d1d1f;
+        --x-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+        --sans: "Geist", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+      }
+      .x-site :focus-visible { outline-color: var(--x-accent); }
+      .x-site .prose, .x-site .cards p, .x-site .step p { line-height: 1.7; }
+      .x-site .head__eyebrow,
+      .x-site .hero__eyebrow,
+      .x-site .step__eyebrow,
+      .x-site .callout__head {
+        font-family: var(--x-mono);
+        font-weight: var(--weight-regular);
+        font-size: var(--size-caption);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--x-accent);
+      }
+      .x-site .step__num { font-family: var(--x-mono); color: var(--x-accent); }
+      .x-site .link { color: var(--x-accent); text-decoration-color: color-mix(in srgb, var(--x-accent) 45%, transparent); }
+      .x-site .link:hover { text-decoration-color: currentColor; }
+      .x-site .main { gap: 0; }
+
+      /* Nav */
+      .x-nav {
+        position: sticky;
+        top: calc(env(safe-area-inset-top, 0px) + 12px);
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 6px 6px 6px 18px;
+        border-radius: var(--r-pill);
+        background: var(--mat-regular);
+        -webkit-backdrop-filter: var(--hark-blur);
+        backdrop-filter: var(--hark-blur);
+        border: 1px solid var(--stroke-primary);
+        box-shadow: var(--hark-shadow);
+      }
+      .x-logo {
+        display: inline-flex; align-items: center; min-height: var(--tap);
+        font: var(--weight-bold) var(--size-body)/1 var(--sans);
+        color: var(--text-primary); text-decoration: none;
+      }
+      .x-logo span { color: var(--x-accent); }
+      .x-menu { display: flex; gap: 2px; margin: 0; padding: 0; list-style: none; }
+      .x-menu a {
+        display: inline-flex; align-items: center; min-height: 36px;
+        padding: 6px 14px; border-radius: var(--r-pill);
+        font: var(--type-label); color: var(--text-secondary); text-decoration: none;
+        transition: color var(--dur-quick) ease;
+      }
+      .x-menu a:hover { color: var(--text-primary); background: var(--hover-wash); }
+      .x-menu a[aria-current="page"] { background: var(--x-accent); color: var(--x-on-accent); }
+      .x-burger {
+        display: none; width: var(--tap); height: var(--tap); place-items: center;
+        border: 1px solid var(--stroke-primary); border-radius: 50%;
+        background: transparent; color: var(--text-primary); cursor: pointer;
+      }
+      .x-burger svg { display: block; }
+      .x-burger .x-close { display: none; }
+      .x-nav.is-open .x-burger .x-open { display: none; }
+      .x-nav.is-open .x-burger .x-close { display: block; }
+      @media (max-width: 760px) {
+        .x-burger { display: grid; }
+        .x-menu {
+          display: none; position: absolute; left: 0; right: 0; top: calc(100% + 8px);
+          flex-direction: column; gap: 4px; padding: 10px;
+          border-radius: var(--r-l); background: var(--fill-tertiary);
+          border: 1px solid var(--stroke-primary); box-shadow: var(--hark-shadow);
+        }
+        .x-nav.is-open .x-menu { display: flex; }
+        .x-menu a { display: flex; min-height: var(--tap); padding: 10px 16px; border-radius: var(--r-s); font-size: var(--size-body); }
+      }
+
+      /* Compact header card */
+      .x-site .hero { background: var(--fill-tertiary); box-shadow: none; color: var(--text-primary); margin-top: 20px; }
+      .x-site .hero::after { display: none; }
+      .x-site .hero__copy { max-width: 46rem; }
+      .x-site .hero__eyebrow { padding: 0; background: none; border: 0; -webkit-backdrop-filter: none; backdrop-filter: none; }
+      .x-site .hero__sub { max-width: 40ch; color: var(--text-secondary); font-weight: var(--weight-regular); }
+      .x-site .hero__meta { font-family: var(--x-mono); font-size: var(--size-caption); color: var(--text-secondary); }
+      .x-avatar { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; border: 2px solid var(--x-accent); }
+
+      /* Topic cards */
+      .x-tag { display: block; margin-bottom: 14px; font: var(--weight-regular) var(--size-caption)/1 var(--x-mono); color: var(--x-accent); }
+
+      /* Name feature card */
+      .x-feature {
+        display: grid; gap: 20px;
+        padding: clamp(24px, 4vw, 40px); border-radius: var(--r-l);
+        background: var(--fill-tertiary);
+        border: 1px solid color-mix(in srgb, var(--x-accent) 40%, transparent);
+      }
+      .x-feature__word { font: var(--type-display); }
+      .x-feature__word span { color: var(--x-accent); }
+      .x-feature dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px; margin: 0; }
+      .x-feature dl > div { padding: 16px 18px; border-radius: var(--r-m); background: var(--fill-primary-on); }
+      .x-feature dt { font: var(--weight-regular) var(--size-body)/1.3 var(--x-mono); color: var(--x-accent); margin-bottom: 6px; }
+      .x-feature dd { margin: 0; line-height: 1.7; }
+      .x-feature__philo { font: var(--type-lede); max-width: 44ch; line-height: 1.5; }
+
+      /* Buttons */
+      .x-cta {
+        display: inline-flex; align-items: center; gap: 6px; min-height: var(--tap);
+        padding: 8px 18px; border-radius: var(--r-s);
+        background: var(--x-accent); color: var(--x-on-accent);
+        font: var(--type-label); text-decoration: none;
+      }
+      .x-cta:hover { box-shadow: inset 0 0 0 100px rgb(0 0 0 / 0.08); }
+      .x-site .links .btn { min-height: var(--tap); padding-inline: 18px; font: var(--type-label); }
+      .x-site .callout { max-width: none; background: var(--fill-tertiary); -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none; border-color: var(--stroke-primary); padding: clamp(22px, 4vw, 36px); gap: 14px; }
+      .x-site .callout__lead { font-size: var(--size-prose); line-height: 1.7; }
+
+      /* Footer */
+      .x-site .foot { margin-top: 40px; display: grid; gap: 14px; justify-content: stretch; }
+      .x-site .foot nav a:hover { color: var(--x-accent); }
+      .x-foot__row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; align-items: center; }
+      .x-foot__copy { font-family: var(--x-mono); font-size: var(--size-caption); }
+    </style>
+  </head>
+  <body>
+    <div class="page x-site" id="top">
+      <header class="x-nav" id="x-nav">
+        <a class="x-logo" href="/">Haha<span>week</span></a>
+        <button class="x-burger" type="button" aria-expanded="false" aria-controls="x-menu" aria-label="Buka menu">
+          <svg class="x-open" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 9h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <svg class="x-close" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M4 4l10 10M14 4L4 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+        <ul class="x-menu" id="x-menu">
+          <li><a href="/">Beranda</a></li>
+          <li><a href="/tentang/" aria-current="page">Tentang</a></li>
+          <li><a href="/eksperimen/">Eksperimen</a></li>
+          <li><a href="/catatan/">Catatan</a></li>
+          <li><a href="/kontak/">Kontak</a></li>
+        </ul>
+      </header>
+
+      <main class="main">
+        <section class="hero">
+          <div class="hero__copy">
+            <img class="x-avatar" src="/avatar.png" alt="Foto profil Hahaweek" />
+            <p class="hero__eyebrow">Tentang</p>
+            <h1>Internet Observer. Digital Anthropologist.</h1>
+            <p class="hero__sub" lang="en">Mapping narratives into on-chain evidence.</p>
+            <p class="hero__meta">Indonesia · di X sejak November 2025</p>
+          </div>
+        </section>
+
+        <section class="section" id="apa">
+          <div class="head">
+            <p class="head__eyebrow">Apa yang aku lakukan</p>
+            <h2>Ngamatin internet kayak antropolog.</h2>
+          </div>
+          <div class="prose">
+            <p>Siapa yang bicara, narasi apa yang menyebar, dan apa buktinya di on-chain. Itu yang Hahaweek catat.</p>
+          </div>
+          <div class="cards">
+            <div><span class="x-tag">01</span><h3>Komunitas crypto</h3></div>
+            <div><span class="x-tag">02</span><h3>Airdrop</h3></div>
+            <div><span class="x-tag">03</span><h3>AI agent</h3></div>
+            <div><span class="x-tag">04</span><h3>Budaya Web3</h3></div>
+          </div>
+        </section>
+
+        <section class="section" id="kenapa">
+          <div class="head">
+            <p class="head__eyebrow">Kenapa situs ini ada</p>
+            <h2>Catatan terbuka, termasuk error-errornya.</h2>
+          </div>
+          <div class="prose">
+            <p>Tempat menyimpan eksperimen dan catatan pengamatan secara terbuka, termasuk error-errornya.</p>
+            <p>Semuanya dikerjakan dari HP Android: Termux, browser, dan rasa penasaran.</p>
+          </div>
+        </section>
+
+        <section class="section" id="nama">
+          <div class="head">
+            <p class="head__eyebrow">Arti nama</p>
+            <h2>Kenapa “Hahaweek”?</h2>
+          </div>
+          <div class="x-feature">
+            <p class="x-feature__word" aria-hidden="true">haha<span>week</span> 😛</p>
+            <dl>
+              <div><dt>“haha”</dt><dd>Tertawa.</dd></div>
+              <div><dt>“week”</dt><dd>Dibaca seperti “wek”, ekspresi menjulurkan lidah 😛 yang meledek.</dd></div>
+            </dl>
+            <p class="x-feature__philo">Filosofinya: ketawain hype-nya, lalu cek buktinya di on-chain.</p>
+          </div>
+        </section>
+
+        <section class="section" id="cara">
+          <div class="head">
+            <p class="head__eyebrow">Cara kerja</p>
+            <h2>Dari narasi ke bukti, tiga langkah.</h2>
+          </div>
+          <div class="steps">
+            <article class="step">
+              <div class="step__intro"><p class="step__num">01</p><p class="step__eyebrow">Narasi</p></div>
+              <div><h3>Tangkap narasi yang ramai di X.</h3></div>
+            </article>
+            <article class="step">
+              <div class="step__intro"><p class="step__num">02</p><p class="step__eyebrow">Bukti</p></div>
+              <div><h3>Cari dokumen resmi, data jaringan, dan riset.</h3></div>
+            </article>
+            <article class="step">
+              <div class="step__intro"><p class="step__num">03</p><p class="step__eyebrow">Tulis</p></div>
+              <div><h3>Tulis hasilnya: narasi vs bukti.</h3></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="ikuti">
+          <aside class="callout" aria-label="Langkah berikutnya">
+            <p class="callout__head">Langkah berikutnya</p>
+            <p class="callout__lead"><strong>Ikuti pengamatannya langsung di X.</strong> Narasi baru dicatat di <a class="link" href="https://x.com/haha_week" target="_blank" rel="noopener">@haha_week</a>, eksperimennya disimpan di sini.</p>
+            <div class="links">
+              <a class="x-cta" href="https://x.com/haha_week" target="_blank" rel="noopener">Ikuti di X ↗</a>
+              <a class="btn" href="/eksperimen/">Lihat eksperimen</a>
+            </div>
+          </aside>
+        </section>
+      </main>
+
+      <footer class="foot">
+        <div class="x-foot__row">
+          <p class="x-foot__copy">© 2026 Hahaweek · hahaweek.my.id</p>
+          <nav aria-label="Tautan">
+            <a href="https://x.com/haha_week" target="_blank" rel="noopener">X</a>
+            <a href="https://github.com/littlepxyek-crypto" target="_blank" rel="noopener">GitHub</a>
+            <a href="/kontak/">Kontak</a>
+          </nav>
+        </div>
+        <p class="fineprint">Konten ini catatan pengamatan dan eksperimen pribadi, bukan saran keuangan.</p>
+      </footer>
+    </div>
+    <script src="/hark.js"></script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.setAttribute("data-theme", "dark");
+        var nav = document.getElementById("x-nav");
+        var btn = nav.querySelector(".x-burger");
+        function set(open) {
+          nav.classList.toggle("is-open", open);
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+          btn.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
+        }
+        btn.addEventListener("click", function () { set(!nav.classList.contains("is-open")); });
+        document.addEventListener("keydown", function (e) { if (e.key === "Escape") set(false); });
+        nav.querySelectorAll(".x-menu a").forEach(function (a) { a.addEventListener("click", function () { set(false); }); });
+      })();
+    </script>
+  </body>
+</html>
