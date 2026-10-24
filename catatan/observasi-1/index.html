@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Narasi vs bukti: benarkah AI pegang dompet sendiri? · Hahaweek</title>
+    <meta name="description" content="Bedah Binance Agentic Wallet dari dokumen resmi dan riset keamanan: AI-nya justru dikurung ketat." />
+    <link rel="canonical" href="https://hahaweek.my.id/catatan/observasi-1/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Hahaweek" />
+    <meta property="og:title" content="Narasi vs bukti: benarkah AI pegang dompet sendiri?" />
+    <meta property="og:description" content="Bedah Binance Agentic Wallet dari dokumen resmi dan riset keamanan: AI-nya justru dikurung ketat." />
+    <meta property="og:url" content="https://hahaweek.my.id/catatan/observasi-1/" />
+    <meta property="og:image" content="https://hahaweek.my.id/og-image.jpg" />
+    <meta property="og:locale" content="id_ID" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@haha_week" />
+    <meta name="twitter:title" content="Narasi vs bukti: benarkah AI pegang dompet sendiri?" />
+    <meta name="twitter:description" content="Bedah Binance Agentic Wallet dari dokumen resmi dan riset keamanan: AI-nya justru dikurung ketat." />
+    <meta name="twitter:image" content="https://hahaweek.my.id/og-image.jpg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&display=swap"
+    />
+    <link rel="stylesheet" href="/hark.css" />
+    <link rel="stylesheet" href="/hark-hero.css" />
+    <style>
+      /* Hahaweek look: dark throughout, one lime accent, mono labels. */
+      :root,
+      :root[data-theme="light"] {
+        color-scheme: dark;
+        --x-lime: #b6ff3b;
+        --x-on-lime: #0a0b08;
+        --x-mono: "Geist Mono", ui-monospace, monospace;
+        --fill-primary-on: #0d0e0c;
+        --fill-tertiary: #1a1c18;
+      }
+      .theme-btn { display: none; }
+      .btn {
+        background: var(--x-lime);
+        color: var(--x-on-lime);
+        border-color: var(--x-lime);
+        font-weight: var(--weight-medium);
+        min-height: var(--tap);
+        padding: 10px 16px;
+      }
+      .btn[target="_blank"]::after { color: inherit; }
+      .btn.x-ghost { background: transparent; color: var(--x-lime); }
+      .hero__eyebrow,
+      .head__eyebrow,
+      .step__eyebrow,
+      .x-label {
+        font-family: var(--x-mono);
+        font-size: var(--size-caption);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--x-lime);
+      }
+      .stat__fig,
+      .step__num { font-family: var(--x-mono); color: var(--x-lime); }
+      .chip--solid { background: var(--x-lime); color: var(--x-on-lime); }
+      .chip--solid::before { background: var(--x-on-lime); }
+      .chip::before { box-shadow: inset 0 0 0 1.5px var(--x-lime); }
+      .link { color: var(--x-lime); text-decoration-color: color-mix(in srgb, var(--x-lime) 45%, transparent); }
+      .x-grid {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background-image:
+          linear-gradient(color-mix(in srgb, var(--x-lime) 10%, transparent) 1px, transparent 1px),
+          linear-gradient(90deg, color-mix(in srgb, var(--x-lime) 10%, transparent) 1px, transparent 1px);
+        background-size: 32px 32px;
+        -webkit-mask-image: linear-gradient(to top right, #000 0%, transparent 70%);
+        mask-image: linear-gradient(to top right, #000 0%, transparent 70%);
+      }
+      .x-col { display: grid; gap: 12px; align-content: start; }
+      .x-col h3 { display: flex; align-items: center; gap: 10px; font: var(--type-heading); }
+      .x-sources { list-style: none; margin: 0; padding: 0; display: grid; }
+      .x-sources li { display: grid; gap: 4px; padding: 14px 0; border-bottom: 1px solid var(--stroke-secondary); }
+      .x-sources li:last-child { border-bottom: 0; }
+      .x-sources .link { font: var(--type-body); width: fit-content; min-height: var(--tap); display: inline-flex; align-items: center; }
+
+      /* Site navigation, shared across all Hahaweek pages. */
+      .x-nav {
+        position: sticky;
+        top: calc(env(safe-area-inset-top, 0px) + 12px);
+        z-index: 30;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 5px 5px 5px 18px;
+        border-radius: var(--r-pill);
+        background: var(--mat-regular);
+        -webkit-backdrop-filter: var(--hark-blur);
+        backdrop-filter: var(--hark-blur);
+        border: 1px solid var(--stroke-secondary);
+        box-shadow: var(--hark-shadow);
+      }
+      .x-logo {
+        font: var(--type-heading);
+        font-family: var(--x-mono);
+        color: var(--text-primary);
+        text-decoration: none;
+        min-height: var(--tap);
+        display: inline-flex;
+        align-items: center;
+      }
+      .x-logo::before { content: ""; width: 10px; height: 10px; border-radius: 3px; background: var(--x-lime); margin-right: 10px; }
+      .x-menu { display: flex; gap: 2px; margin: 0; padding: 0; list-style: none; }
+      .x-menu a {
+        display: inline-flex;
+        align-items: center;
+        min-height: var(--tap);
+        padding: 0 14px;
+        border-radius: var(--r-pill);
+        font: var(--type-label);
+        color: var(--text-secondary);
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .x-menu a:hover { color: var(--text-primary); background: var(--fill-tertiary); }
+      .x-menu a[aria-current="page"] { background: var(--x-lime); color: var(--x-on-lime); }
+      .x-burger {
+        display: none;
+        width: var(--tap);
+        height: var(--tap);
+        border: 0;
+        border-radius: 50%;
+        background: var(--fill-tertiary);
+        color: var(--text-primary);
+        cursor: pointer;
+        place-items: center;
+      }
+      .x-burger span, .x-burger span::before, .x-burger span::after {
+        display: block; width: 18px; height: 1.5px; background: currentColor; border-radius: 2px; position: relative;
+        transition: transform var(--dur-quick) var(--ease-out), background var(--dur-quick) var(--ease-out);
+      }
+      .x-burger span::before, .x-burger span::after { content: ""; position: absolute; left: 0; }
+      .x-burger span::before { top: -6px; }
+      .x-burger span::after { top: 6px; }
+      .x-nav.is-open .x-burger span { background: transparent; }
+      .x-nav.is-open .x-burger span::before { transform: translateY(6px) rotate(45deg); }
+      .x-nav.is-open .x-burger span::after { transform: translateY(-6px) rotate(-45deg); }
+      @media (max-width: 759px) {
+        .x-burger { display: grid; }
+        .x-menu {
+          display: none;
+          position: absolute;
+          top: calc(100% + 8px);
+          left: 0;
+          right: 0;
+          flex-direction: column;
+          gap: 4px;
+          padding: 8px;
+          border-radius: var(--r-l);
+          background: var(--fill-primary-on);
+          border: 1px solid var(--stroke-secondary);
+          box-shadow: var(--hark-shadow);
+        }
+        .x-nav.is-open .x-menu { display: flex; }
+        .x-menu a { display: flex; padding: 0 16px; border-radius: var(--r-s); font: var(--type-body); }
+      }
+
+      .x-back {
+        display: inline-flex;
+        align-items: center;
+        min-height: var(--tap);
+        width: fit-content;
+        font: var(--type-label);
+        color: var(--x-lime);
+        text-decoration: none;
+      }
+      .x-back:hover { text-decoration: underline; }
+      .x-foot-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: var(--tap);
+        min-height: var(--tap);
+      }
+      .x-foot-copy { display: grid; gap: 4px; }
+    </style>
+  </head>
+  <body>
+    <div class="page" id="top">
+      <header class="x-nav" id="x-nav">
+        <a class="x-logo" href="/">Hahaweek</a>
+        <button class="x-burger" id="x-burger" type="button" aria-expanded="false" aria-controls="x-menu" aria-label="Buka menu"><span></span></button>
+        <nav aria-label="Navigasi utama">
+          <ul class="x-menu" id="x-menu">
+            <li><a href="/">Beranda</a></li>
+            <li><a href="/tentang/">Tentang</a></li>
+            <li><a href="/eksperimen/">Eksperimen</a></li>
+            <li><a href="/catatan/" aria-current="page">Catatan</a></li>
+            <li><a href="/kontak/">Kontak</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main class="main">
+        <section class="hero">
+          <img
+            class="hero__img"
+            src="/agentic-hero.jpg"
+            alt="Dompet bercahaya terkunci di dalam sangkar cahaya hijau limau, tangan robot tertahan di luarnya"
+          />
+          <div class="x-grid" aria-hidden="true"></div>
+          <div class="hero__copy">
+            <a class="x-back" href="/catatan/">← Semua catatan</a>
+            <p class="hero__eyebrow">Catatan Observasi #1 · 24 Oktober 2026</p>
+            <h1>Narasi vs bukti: benarkah AI pegang dompet sendiri?</h1>
+            <p class="hero__sub">
+              Aku bedah Binance Agentic Wallet dari dokumen resmi dan riset keamanan. Hasilnya: AI-nya justru dikurung ketat.
+            </p>
+            <div class="links">
+              <a class="btn" href="https://x.com/haha_week" target="_blank" rel="noopener">Baca thread di X</a>
+              <a class="btn x-ghost" href="/catatan/">Semua catatan</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="narasi" data-nav="Narasi">
+          <div class="head">
+            <p class="head__eyebrow">01 · Narasi</p>
+            <h2>Klaimnya terdengar besar.</h2>
+          </div>
+          <div class="cards">
+            <div>
+              <p class="quote">“AI sekarang punya dompet kripto sendiri.”</p>
+              <p>Narasi yang ramai beredar di X. Mari cek buktinya.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="bukti" data-nav="Bukti">
+          <div class="head">
+            <p class="head__eyebrow">02 · Bukti dalam angka</p>
+            <h2>Empat angka yang meluruskan narasinya.</h2>
+          </div>
+          <section class="stats">
+            <div class="stat"><span class="stat__fig">24 Apr 2026</span><span class="stat__label">Diluncurkan</span></div>
+            <div class="stat">
+              <span class="stat__fig">4</span
+              ><span class="stat__label">Jaringan: BNB Chain, Ethereum, Base, Solana</span>
+            </div>
+            <div class="stat">
+              <span class="stat__fig">0</span><span class="stat__label">Private key yang dipegang AI</span>
+            </div>
+            <div class="stat">
+              <span class="stat__fig">.ai</span
+              ><span class="stat__label">Nama Agent ID gratis via SPACE ID (Okt 2026)</span>
+            </div>
+          </section>
+        </section>
+
+        <section class="section" id="cara" data-nav="Cara kerja">
+          <div class="head">
+            <p class="head__eyebrow">03 · Cara kerjanya</p>
+            <h2>Kamu yang pegang aturan, AI cuma menjalankan.</h2>
+          </div>
+          <div class="steps">
+            <article class="step">
+              <div class="step__intro">
+                <p class="step__num">01</p>
+                <p class="step__eyebrow">Kamu</p>
+              </div>
+              <div>
+                <h3>Atur aturan di aplikasi Binance</h3>
+                <p>Limit harian, token yang boleh, transaksi berisiko. AI bisa membaca aturan, tapi tidak bisa mengubahnya.</p>
+              </div>
+            </article>
+            <article class="step">
+              <div class="step__intro">
+                <p class="step__num">02</p>
+                <p class="step__eyebrow">AI</p>
+              </div>
+              <div>
+                <h3>Perintah bahasa biasa</h3>
+                <p>Misalnya “Swap 0,1 BNB ke USDT”, lalu AI minta kutipan harga.</p>
+              </div>
+            </article>
+            <article class="step">
+              <div class="step__intro">
+                <p class="step__num">03</p>
+                <p class="step__eyebrow">Sistem</p>
+              </div>
+              <div>
+                <h3>Dibatasi di level API</h3>
+                <p>Di luar aturan, transaksi ditolak otomatis atau minta konfirmasi kamu.</p>
+              </div>
+            </article>
+          </div>
+          <div class="aside">
+            <h3>Soal kunci</h3>
+            <p class="fineprint">
+              Pakai MPC keyless: private key tidak pernah utuh di satu perangkat atau server, dan tidak bisa diekspor.
+            </p>
+          </div>
+        </section>
+
+        <section class="section" id="batas" data-nav="Batasan">
+          <div class="head">
+            <p class="head__eyebrow">04 · Bisa vs tidak bisa</p>
+            <h2>Daftar larangannya lebih panjang dari daftar izinnya.</h2>
+          </div>
+          <div class="pair">
+            <div class="x-col">
+              <h3><span class="chip chip--solid">Bisa</span></h3>
+              <ul class="checklist">
+                <li><span class="checklist__item">Cek saldo dan sisa limit</span></li>
+                <li><span class="checklist__item">Swap dan limit order</span></li>
+                <li><span class="checklist__item">Transfer ke alamat di buku alamat</span></li>
+                <li><span class="checklist__item">Prediction market</span></li>
+              </ul>
+            </div>
+            <div class="x-col">
+              <h3><span class="chip">Tidak bisa</span></h3>
+              <ul class="checklist">
+                <li>
+                  <span class="checklist__item">Tanda tangan teks biasa <small>personal_sign / eth_sign</small></span>
+                </li>
+                <li><span class="checklist__item">Login “Sign in with Ethereum”</span></li>
+                <li>
+                  <span class="checklist__item">Halaman klaim airdrop dan allowlist <small>Yang minta tanda tangan teks</small></span>
+                </li>
+                <li><span class="checklist__item">Transfer ke alamat di luar buku alamat</span></li>
+                <li>
+                  <span class="checklist__item"
+                    >Transaksi sembarang
+                    <small
+                      >Kecuali Developer Mode: hanya bisa dinyalakan di aplikasi, punya limit sendiri, dan ada batas
+                      waktunya</small
+                    ></span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <aside class="callout" aria-label="Waspada">
+            <p class="callout__head x-label">Waspada</p>
+            <p class="callout__lead">
+              <strong>Jadi kalau ada “airdrop khusus Agentic Wallet” yang minta tanda tangan teks, curigai dulu.</strong>
+            </p>
+          </aside>
+        </section>
+
+        <section class="section" id="riset" data-nav="Riset">
+          <div class="head">
+            <p class="head__eyebrow">05 · Kata riset</p>
+            <h2>Peneliti sepakat: amannya harus berlapis.</h2>
+          </div>
+          <div class="cards">
+            <div>
+              <h3>SoK: Security of Autonomous LLM Agents in Agentic Commerce</h3>
+              <p class="x-label">Mao dkk. · arXiv 2604.15367 · v2 1 Mei 2026</p>
+              <p>
+                Memetakan ancaman di <span class="pill">5 dimensi</span> dan
+                <span class="pill">12 vektor serangan</span> lintas lapisan:
+              </p>
+              <ul>
+                <li>Integritas agent</li>
+                <li>Otorisasi transaksi</li>
+                <li>Kepercayaan antar-agent</li>
+                <li>Manipulasi pasar</li>
+                <li>Kepatuhan regulasi</li>
+              </ul>
+              <p>
+                <strong>Kesimpulan:</strong> amannya harus berlapis, dari keamanan AI, desain protokol, identitas, sampai
+                regulasi.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="catatan" data-nav="Catatan">
+          <div class="head">
+            <p class="head__eyebrow">06 · Catatan pribadi</p>
+            <h2>Aman, tapi banyak pintu yang sengaja ditutup.</h2>
+          </div>
+          <div class="prose">
+            <p>Aku sudah coba: punya Agent ID .ai dan mint NFT gratis lewat Agentic Wallet.</p>
+            <p>
+              Yang terasa: aman, tapi banyak halaman klaim yang tidak bisa dipakai. Itu bukan bug, memang desainnya.
+            </p>
+          </div>
+        </section>
+
+        <section class="section" id="sumber" data-nav="Sumber">
+          <div class="head">
+            <p class="head__eyebrow">07 · Sumber</p>
+            <h2>Cek sendiri buktinya.</h2>
+          </div>
+          <ul class="x-sources">
+            <li>
+              <a class="link" href="https://web3.binance.com/en/dev-docs/products/agentic-wallet/introduction" target="_blank" rel="noopener">Binance Web3 Docs, Agentic Wallet</a>
+              <span class="fineprint">Dokumen resmi</span>
+            </li>
+            <li>
+              <a class="link" href="https://www.tokenpost.com/news/technology/36411" target="_blank" rel="noopener">TokenPost</a>
+              <span class="fineprint">21 Okt 2026</span>
+            </li>
+            <li>
+              <a class="link" href="https://arxiv.org/abs/2604.15367" target="_blank" rel="noopener">arXiv 2604.15367</a>
+              <span class="fineprint">SoK: Security of Autonomous LLM Agents in Agentic Commerce</span>
+            </li>
+          </ul>
+        </section>
+      </main>
+      <footer class="foot">
+        <div class="x-foot-copy">
+          <p><strong>© 2026 Hahaweek · hahaweek.my.id</strong></p>
+          <p>Konten ini catatan pengamatan dan eksperimen pribadi, bukan saran keuangan.</p>
+        </div>
+        <nav class="x-foot-links" aria-label="Tautan Hahaweek">
+          <a href="https://x.com/haha_week" target="_blank" rel="noopener">X</a>
+          <a href="https://github.com/littlepxyek-crypto" target="_blank" rel="noopener">GitHub</a>
+          <a href="/kontak/">Kontak</a>
+        </nav>
+      </footer>
+    </div>
+    <script src="/hark.js"></script>
+    <script>
+      (function () {
+        var nav = document.getElementById("x-nav"), btn = document.getElementById("x-burger");
+        function set(open) {
+          nav.classList.toggle("is-open", open);
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+          btn.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
+        }
+        btn.addEventListener("click", function () { set(!nav.classList.contains("is-open")); });
+        document.addEventListener("keydown", function (e) { if (e.key === "Escape") set(false); });
+        document.addEventListener("click", function (e) { if (!nav.contains(e.target)) set(false); });
+        nav.querySelectorAll(".x-menu a").forEach(function (a) { a.addEventListener("click", function () { set(false); }); });
+      })();
+    </script>
+  </body>
+</html>
