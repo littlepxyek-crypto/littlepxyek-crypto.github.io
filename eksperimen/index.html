@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="id" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Eksperimen RESET dari HP · Hahaweek</title>
+    <meta name="description" content="Mining RESET pakai AI agent cuma modal HP Android: status terkini, panduan Termux langkah demi langkah, dan catatan error." />
+    <meta name="theme-color" content="#1d1d1f" />
+    <link rel="canonical" href="https://hahaweek.my.id/eksperimen/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hahaweek" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:title" content="Eksperimen RESET dari HP · Hahaweek" />
+    <meta property="og:description" content="Mining RESET pakai AI agent cuma modal HP Android: status terkini, panduan Termux langkah demi langkah, dan catatan error." />
+    <meta property="og:url" content="https://hahaweek.my.id/eksperimen/" />
+    <meta property="og:image" content="https://hahaweek.my.id/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@haha_week" />
+    <meta name="twitter:title" content="Eksperimen RESET dari HP · Hahaweek" />
+    <meta name="twitter:description" content="Mining RESET pakai AI agent cuma modal HP Android: status terkini, panduan Termux langkah demi langkah, dan catatan error." />
+    <meta name="twitter:image" content="https://hahaweek.my.id/og-image.jpg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&display=swap"
+    />
+    <link rel="stylesheet" href="/hark.css" />
+    <link rel="stylesheet" href="/hark-hero.css" />
+    <style>
+      /* Hahaweek site chrome: dark only, one lime accent. */
+      :root {
+        color-scheme: dark;
+        --x-accent: #b6ff3b;
+        --x-on-accent: #10140a;
+        --x-accent-wash: #2a3220;
+        --x-accent-line: rgb(182 255 59 / 0.4);
+        --x-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+      body { line-height: 1.7; }
+      .page { padding-top: 0; gap: 24px; }
+
+      /* Accent applied to the library's eyebrows, figures, links */
+      .head__eyebrow, .step__eyebrow, .x-eyebrow {
+        font: var(--weight-regular) var(--size-caption)/1.3 var(--x-mono);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--x-accent);
+      }
+      .stat__fig, .step__num { font-family: var(--x-mono); color: var(--x-accent); }
+      .link { color: var(--x-accent); text-decoration-color: var(--x-accent-line); }
+      .link:hover { text-decoration-color: var(--x-accent); }
+      .btn.x-primary { background: var(--x-accent); color: var(--x-on-accent); border-color: var(--x-accent); font-weight: var(--weight-bold); }
+      .btn.x-primary::after { color: var(--x-on-accent); }
+      .btn.x-primary:hover { box-shadow: inset 0 0 0 100px rgb(0 0 0 / 0.08); }
+      :focus-visible { outline-color: var(--x-accent); }
+
+      /* Nav */
+      .x-nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        margin-inline: calc(-1 * var(--gutter));
+        padding-inline: var(--gutter);
+        background: rgb(29 29 31 / 0.82);
+        -webkit-backdrop-filter: var(--hark-blur);
+        backdrop-filter: var(--hark-blur);
+        border-bottom: 1px solid var(--stroke-secondary);
+      }
+      .x-nav__bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; }
+      .x-logo { display: inline-flex; align-items: center; gap: 8px; min-height: var(--tap); font: var(--weight-bold) var(--size-heading)/1 var(--sans); color: var(--text-primary); text-decoration: none; }
+      .x-logo::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--x-accent); }
+      .x-menu { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
+      .x-menu a {
+        display: inline-flex;
+        align-items: center;
+        min-height: var(--tap);
+        padding: 0 14px;
+        border-radius: var(--r-pill);
+        font: var(--type-label);
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color var(--dur-quick) ease, background var(--dur-quick) ease;
+      }
+      .x-menu a:hover { color: var(--text-primary); background: var(--hover-wash); }
+      .x-menu a[aria-current="page"] { color: var(--x-accent); background: var(--x-accent-wash); }
+      .x-burger {
+        display: none;
+        width: var(--tap);
+        height: var(--tap);
+        place-items: center;
+        border: 1px solid var(--stroke-primary);
+        border-radius: var(--r-s);
+        background: transparent;
+        color: var(--text-primary);
+        cursor: pointer;
+      }
+      .x-burger svg { display: block; }
+      .x-burger .x-close { display: none; }
+      .x-nav.is-open .x-burger .x-open { display: none; }
+      .x-nav.is-open .x-burger .x-close { display: block; }
+      @media (max-width: 719px) {
+        .x-burger { display: grid; }
+        .x-nav__links { display: contents; }
+        .x-menu {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          flex-direction: column;
+          gap: 0;
+          padding: 8px var(--gutter) 16px;
+          background: var(--fill-primary-on);
+          border-bottom: 1px solid var(--stroke-primary);
+        }
+        .x-nav.is-open .x-menu { display: flex; }
+        .x-menu a { display: flex; min-height: 52px; padding: 0 14px; border-radius: var(--r-s); font-size: var(--size-prose); }
+      }
+
+      /* Compact header */
+      .x-hero {
+        display: grid;
+        gap: 14px;
+        margin-top: 8px;
+        padding: clamp(24px, 4vw, 44px);
+        border-radius: var(--r-l);
+        background: var(--fill-tertiary);
+        border: 1px solid var(--stroke-secondary);
+      }
+      .x-hero h1 { font: var(--type-display); }
+      .x-hero__sub { font: var(--type-lede); color: var(--text-secondary); max-width: 40ch; }
+      .x-badges, .x-jumps { display: flex; flex-wrap: wrap; gap: 8px; }
+      .x-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 5px 12px;
+        border-radius: var(--r-pill);
+        border: 1px solid var(--x-accent-line);
+        background: var(--x-accent-wash);
+        color: var(--x-accent);
+        font: var(--weight-regular) var(--size-caption)/1.3 var(--x-mono);
+      }
+      .x-badge--muted { border-color: var(--stroke-primary); background: transparent; color: var(--text-secondary); }
+      .x-jumps { padding-top: 6px; border-top: 1px solid var(--stroke-secondary); margin-top: 6px; padding-top: 18px; }
+      .x-jumps a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 36px;
+        padding: 0 14px;
+        border-radius: var(--r-pill);
+        background: var(--fill-primary-on);
+        color: var(--text-primary);
+        font: var(--type-tag);
+        text-decoration: none;
+      }
+      .x-jumps a:hover { color: var(--x-accent); }
+      @media (pointer: coarse), (max-width: 599px) { .x-jumps a { min-height: var(--tap); } }
+
+      /* Status cards */
+      .x-label { font: var(--weight-regular) var(--size-caption)/1.3 var(--x-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 10px; }
+      .x-fig { font: var(--weight-regular) var(--size-figure)/1.2 var(--x-mono); color: var(--x-accent); }
+      .x-val { font: var(--type-body-strong); line-height: 1.5; }
+      .x-mono { font-family: var(--x-mono); font-size: 0.92em; overflow-wrap: anywhere; }
+      .cards .x-note { margin-top: 6px; font-size: var(--size-small); color: var(--text-secondary); }
+      .x-progress { height: 8px; margin-top: 14px; border-radius: var(--r-pill); background: var(--fill-primary-on); overflow: hidden; }
+      .x-progress > span { display: block; height: 100%; border-radius: inherit; background: var(--x-accent); min-width: 0; }
+
+      /* Steps as cards */
+      .x-boxed { display: grid; gap: 16px; }
+      .x-boxed > .step { padding: clamp(20px, 3vw, 28px); border: 1px solid var(--stroke-secondary); border-radius: var(--r-m); background: var(--fill-tertiary); }
+      .x-boxed > .step:last-child { border-bottom: 1px solid var(--stroke-secondary); }
+      .x-boxed .step__num { font-size: 40px; }
+
+      /* Code blocks */
+      .x-code {
+        position: relative;
+        margin: 14px 0 0;
+        border-radius: var(--r-s);
+        background: var(--fill-primary-on);
+        border: 1px solid var(--stroke-secondary);
+      }
+      .x-code pre {
+        margin: 0;
+        padding: 14px 16px;
+        padding-right: 88px;
+        overflow-x: auto;
+        font: var(--weight-regular) var(--size-meta)/1.6 var(--x-mono);
+        color: var(--text-primary);
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+      .x-copy {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        min-height: 32px;
+        padding: 0 12px;
+        border-radius: var(--r-s);
+        border: 1px solid var(--stroke-primary);
+        background: var(--fill-tertiary);
+        color: var(--text-primary);
+        font: var(--weight-regular) var(--size-caption)/1 var(--x-mono);
+        cursor: pointer;
+      }
+      .x-copy:hover { border-color: var(--x-accent-line); color: var(--x-accent); }
+      .x-copy.is-done { color: var(--x-accent); border-color: var(--x-accent-line); }
+      @media (pointer: coarse), (max-width: 599px) { .x-copy { min-height: var(--tap); top: 4px; right: 4px; } .x-code pre { padding-block: 16px; } }
+
+      .x-warn { border-left: 3px solid var(--fill-system-red); }
+      .x-warn .callout__head { color: var(--fill-system-red); }
+
+      /* Footer */
+      .x-foot { display: grid; gap: 16px; }
+      .x-foot__row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; width: 100%; }
+      .x-foot .x-logo { font-size: var(--size-body); }
+      .x-foot nav a:hover { color: var(--x-accent); }
+    </style>
+  </head>
+  <body>
+    <div class="page" id="top">
+      <header class="x-nav" id="x-nav">
+        <div class="x-nav__bar">
+          <a class="x-logo" href="/">Hahaweek</a>
+          <button class="x-burger" id="x-burger" type="button" aria-expanded="false" aria-controls="x-menu" aria-label="Buka menu">
+            <svg class="x-open" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
+            <svg class="x-close" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
+          </button>
+          <nav class="x-nav__links" aria-label="Menu utama">
+            <ul class="x-menu" id="x-menu">
+              <li><a href="/">Beranda</a></li>
+              <li><a href="/tentang/">Tentang</a></li>
+              <li><a href="/eksperimen/" aria-current="page">Eksperimen</a></li>
+              <li><a href="/catatan/">Catatan</a></li>
+              <li><a href="/kontak/">Kontak</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <main class="main">
+        <header class="x-hero">
+          <p class="x-eyebrow">Eksperimen</p>
+          <h1>Penambang modal HP</h1>
+          <p class="x-hero__sub">Mining RESET pakai AI agent, cuma modal HP Android.</p>
+          <div class="x-badges">
+            <span class="x-badge">Status: menunggu 0,1 RESET pertama</span>
+            <span class="x-badge x-badge--muted">Terakhir diperbarui: 25 Oktober 2026</span>
+          </div>
+          <nav class="x-jumps" aria-label="Di halaman ini">
+            <a href="#latar">Latar belakang</a>
+            <a href="#status">Status</a>
+            <a href="#panduan">Panduan</a>
+            <a href="#catatan">Catatan</a>
+          </nav>
+        </header>
+
+        <section class="section" id="latar">
+          <div class="head">
+            <p class="head__eyebrow">Latar belakang</p>
+            <h2>Satu Mine bersama, dibagi para AI agent.</h2>
+          </div>
+          <div class="pair">
+            <div class="prose">
+              <p>RESET adalah eksperimen dari Trac Network. Para AI agent berbagi satu "Mine" koin yang tumbuh tiap blok Bitcoin.</p>
+              <p>Tiap jam agent mengklaim bagian. Yang adil dibayar duluan, yang serakah kena strike.</p>
+            </div>
+            <section class="stats">
+              <div class="stat"><span class="stat__fig">3,125</span><span class="stat__label">Koin per blok Bitcoin</span></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="section" id="status">
+          <div class="head">
+            <p class="head__eyebrow">Status terkini</p>
+            <h2>Agent sudah jalan, tinggal menunggu 0,1 RESET pertama.</h2>
+            <p class="head__sub">Data per 25 Oktober 2026, 05.41 WIB.</p>
+          </div>
+          <div class="cards">
+            <div>
+              <p class="x-label">Saldo</p>
+              <p class="x-fig">0 RESET</p>
+            </div>
+            <div>
+              <p class="x-label">Syarat</p>
+              <p class="x-val">0,1 RESET harus dikunci dulu</p>
+              <div class="x-progress" role="progressbar" aria-label="Progres syarat kunci" aria-valuemin="0" aria-valuemax="0.1" aria-valuenow="0" aria-valuetext="0 dari 0,1 RESET, 0%"><span style="width: 0%"></span></div>
+              <p class="x-note"><span class="x-mono">0 / 0,1</span> · 0%</p>
+            </div>
+            <div>
+              <p class="x-label">Agent</p>
+              <p class="x-val">Jalan di HP Android lewat Termux</p>
+              <p class="x-note">Sejak 24 Okt 2026, 04.56 WIB</p>
+            </div>
+            <div>
+              <p class="x-label">Model AI</p>
+              <p class="x-val x-mono">google/gemma-4-31b-it:free</p>
+              <p class="x-note">Via OpenRouter, credit limit $0</p>
+            </div>
+            <div>
+              <p class="x-label">Strike</p>
+              <p class="x-fig">0</p>
+            </div>
+            <div>
+              <p class="x-label">Ronde terakhir dicek</p>
+              <p class="x-fig">548</p>
+            </div>
+          </div>
+          <div class="links">
+            <a class="btn" href="https://reset.openmayhem.ai/v1/account/391a55668c8c5d38d2f6e16ec31338276cb354bd5cdff196ab671bf1d1d3aa3e" target="_blank" rel="noopener">Cek saldo wallet (data jaringan)</a>
+            <a class="btn" href="https://github.com/Trac-Systems/reset" target="_blank" rel="noopener">Repo RESET</a>
+          </div>
+        </section>
+
+        <section class="section" id="panduan">
+          <div class="head">
+            <p class="head__eyebrow">Panduan</p>
+            <h2>Mining RESET dari HP Android, tujuh langkah.</h2>
+            <p class="head__sub">Semua perintah dijalankan di Termux. Tekan Salin untuk menyalin.</p>
+          </div>
+          <div class="steps x-boxed">
+            <article class="step">
+              <div class="step__intro"><p class="step__num">01</p><p class="step__eyebrow">Persiapan</p></div>
+              <div>
+                <h3>Install Termux, lalu Node.js dan Git</h3>
+                <p>Ambil Termux dari F-Droid, buka, lalu jalankan:</p>
+                <div class="x-code"><pre><code>pkg install nodejs git</code></pre><button class="x-copy" type="button">Salin</button></div>
+              </div>
+            </article>
+            <article class="step">
+              <div class="step__intro"><p class="step__num">02</p><p class="step__eyebrow">Repo</p></div>
+              <div>
+                <h3>Clone repo RESET dan pasang dependensi</h3>
+                <div class="x-code"><pre><code>git clone https://github.com/Trac-Systems/reset &amp;&amp; cd reset/signer &amp;&amp; npm ci</code></pre><button class="x-copy" type="button">Salin</button></div>
+              </div>
+            </article>
+            <article class="step">
+              <div class="step__intro"><p class="step__num">03</p><p class="step__eyebrow">Wallet</p></div>
+              <div>
+                <h3>Bikin wallet</h3>
+                <div class="x-code"><pre><code>node bin/reset-signer.mjs init</code></pre><button class="x-copy" type="button">Salin</button></div>
+                <p style="margin-top: 12px">Buat password minimal 12 karakter, lalu backup <span class="x-mono">~/.reset-signer/keystore.json</span>.</p>
+              </div>
+            </article>
+            <article class="step">
+              <div class="step__intro"><p class="step__num">04</p><p class="step__eyebrow">API key</p></div>
+              <div>
+                <h3>Bikin API key OpenRouter</h3>
+                <p>Bikin API key di <a class="link" href="https://openrouter.ai" target="_blank" rel="noopener">openrouter.ai</a> dengan Credit limit 0, lalu:</p>
+                <div class="x-code"><pre><code>export OPENROUTER_API_KEY="KEY-ANDA"</code></pre><button class="x-copy" type="button">Salin</button></div>
+              </div>
+            </article>
+            <article class="step">
+              <div class="step__intro"><p class="step__num">05</p><p class="step__eyebrow">Model</p></div>
+              <div>
+                <h3>Lihat model gratis</h3>
+                <div class="x-code"><pre><code>node bin/reset-signer.mjs agent --list-models --provider openrouter --model x 2&gt;&amp;1 | tr ',' '\n' | grep -i free</code></pre><button class="x-copy" type="button">Salin</button></div>
+              </div>
+            </article>
+            <article class="step">
+              <div class="step__intro"><p class="step__num">06</p><p class="step__eyebrow">Jalan</p></div>
+              <div>
+                <h3>Jalankan agent mine</h3>
+                <div class="x-code"><pre><code>node bin/reset-signer.mjs agent --role mine --provider openrouter --model 'google/gemma-4-31b-it:free'</code></pre><button class="x-copy" type="button">Salin</button></div>
+              </div>
+            </article>
+            <article class="step">
+              <div class="step__intro"><p class="step__num">07</p><p class="step__eyebrow">Klaim</p></div>
+              <div>
+                <h3>Isi wallet, biarkan tetap jalan</h3>
+                <p>Isi wallet minimal 0,1 RESET; agent otomatis mengunci dan mulai klaim.</p>
+                <p>Tarik notifikasi Termux, tekan <strong>Acquire wakelock</strong> biar tetap jalan.</p>
+              </div>
+            </article>
+          </div>
+          <aside class="callout x-warn" aria-label="Peringatan">
+            <p class="callout__head">Peringatan</p>
+            <p class="callout__lead"><strong>Jangan pernah bagikan password wallet, keystore, atau API key.</strong> Ini eksperimen, tanpa listing bursa dan tanpa janji nilai.</p>
+            <p class="fineprint">Koin "#reset" di Coinbase itu koin lain.</p>
+          </aside>
+        </section>
+
+        <section class="section" id="catatan">
+          <div class="head">
+            <p class="head__eyebrow">Catatan perjalanan</p>
+            <h2>Satu malam, dua error konyol, agent akhirnya jalan.</h2>
+            <p class="head__sub">24 Oktober 2026 (WIB)</p>
+          </div>
+          <ol class="timeline">
+            <li>
+              <p class="timeline__when">Setup</p>
+              <div class="timeline__what">Pasang Termux, Node.js 26.4.0, Git; clone repo RESET; <span class="x-mono">npm ci</span>.</div>
+            </li>
+            <li>
+              <p class="timeline__when">Wallet</p>
+              <div class="timeline__what">Bikin wallet RESET dan backup keystore.</div>
+            </li>
+            <li>
+              <p class="timeline__when">API key</p>
+              <div class="timeline__what">Bikin API key OpenRouter dengan batas kredit $0 (biar gratis beneran).</div>
+            </li>
+            <li>
+              <p class="timeline__when">Error 1</p>
+              <div class="timeline__what">"Set OPENROUTER_API_KEY" muncul berkali-kali. Ternyata key belum ke-paste.</div>
+            </li>
+            <li>
+              <p class="timeline__when">Error 2</p>
+              <div class="timeline__what">Daftar model error. Ternyata harus isi <span class="x-mono">--model</span> walau cuma mau lihat daftar.</div>
+            </li>
+            <li>
+              <p class="timeline__when">04.56 WIB</p>
+              <div class="timeline__what">Agent mine jalan; layar diam itu normal.</div>
+              <p><span class="chip chip--solid">Jalan</span></p>
+            </li>
+            <li class="is-current">
+              <p class="timeline__when">Lalu</p>
+              <div class="timeline__what">Minta 0,1 RESET starter ke komunitas di GitHub dan X.</div>
+              <p><span class="chip">Menunggu</span></p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="section" id="ikuti">
+          <aside class="callout" aria-label="Langkah berikutnya">
+            <p class="callout__head">Langkah berikutnya</p>
+            <p class="callout__lead"><strong>Ikuti update di X.</strong> Kabar saldo pertama, strike, dan error baru diposting di sana.</p>
+            <div class="links">
+              <a class="btn x-primary" href="https://x.com/haha_week" target="_blank" rel="noopener">Ikuti update di X</a>
+              <a class="btn" href="https://twitter.com/intent/tweet?text=Mining%20RESET%20pakai%20AI%20agent%2C%20cuma%20modal%20HP%20Android&amp;url=https%3A%2F%2Fhahaweek.my.id%2Feksperimen%2F&amp;via=haha_week" target="_blank" rel="noopener">Bagikan di X</a>
+            </div>
+          </aside>
+        </section>
+      </main>
+
+      <footer class="foot x-foot">
+        <div class="x-foot__row">
+          <a class="x-logo" href="/">Hahaweek</a>
+          <nav aria-label="Tautan">
+            <a href="https://x.com/haha_week" target="_blank" rel="noopener">X</a>
+            <a href="https://github.com/littlepxyek-crypto" target="_blank" rel="noopener">GitHub</a>
+            <a href="/kontak/">Kontak</a>
+          </nav>
+        </div>
+        <p>© 2026 Hahaweek · hahaweek.my.id</p>
+        <p class="fineprint">Konten ini catatan pengamatan dan eksperimen pribadi, bukan saran keuangan.</p>
+      </footer>
+    </div>
+    <script src="/hark.js"></script>
+    <script>
+      (function () {
+        document.documentElement.setAttribute("data-theme", "dark");
+        var nav = document.getElementById("x-nav");
+        var btn = document.getElementById("x-burger");
+        function setOpen(open) {
+          nav.classList.toggle("is-open", open);
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+          btn.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
+        }
+        btn.addEventListener("click", function () { setOpen(!nav.classList.contains("is-open")); });
+        nav.querySelectorAll(".x-menu a").forEach(function (a) { a.addEventListener("click", function () { setOpen(false); }); });
+        document.addEventListener("keydown", function (e) { if (e.key === "Escape" && nav.classList.contains("is-open")) { setOpen(false); btn.focus(); } });
+        window.matchMedia("(min-width: 720px)").addEventListener("change", function (m) { if (m.matches) setOpen(false); });
+
+        function fallbackCopy(text) {
+          var ta = document.createElement("textarea");
+          ta.value = text;
+          ta.setAttribute("readonly", "");
+          ta.style.position = "fixed";
+          ta.style.opacity = "0";
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand("copy"); } catch (e) {}
+          document.body.removeChild(ta);
+        }
+        document.querySelectorAll(".x-copy").forEach(function (b) {
+          b.setAttribute("aria-label", "Salin perintah");
+          b.addEventListener("click", function () {
+            var text = b.parentNode.querySelector("code").textContent;
+            b.textContent = "Tersalin";
+            b.classList.add("is-done");
+            clearTimeout(b._t);
+            b._t = setTimeout(function () { b.textContent = "Salin"; b.classList.remove("is-done"); }, 1800);
+            try {
+              if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).catch(function () { fallbackCopy(text); });
+              else fallbackCopy(text);
+            } catch (e) { fallbackCopy(text); }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
