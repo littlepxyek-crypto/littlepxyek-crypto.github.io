@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Haha Week · @haha_week</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&display=swap"
+    />
+    <link rel="stylesheet" href="hark.css" />
+    <link rel="stylesheet" href="hark-hero.css" />
+    <style>
+      .x-avatar {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--hero-glass-stroke, var(--stroke-primary));
+        box-shadow: var(--hark-shadow);
+      }
+      .x-code {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin: 12px 0;
+        padding: 10px 10px 10px 14px;
+        border-radius: var(--r-s);
+        background: var(--fill-tertiary);
+        border: 1px solid var(--stroke-secondary);
+      }
+      .x-code code {
+        flex: 1;
+        min-width: 0;
+        padding-top: 5px;
+        font-family: "Geist Mono", ui-monospace, monospace;
+        font-size: var(--size-meta);
+        line-height: 1.5;
+        color: var(--text-primary);
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+      .x-code .btn { flex: none; cursor: pointer; }
+      .x-code--wallet code { font-size: var(--size-small); }
+      .x-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    </style>
+  </head>
+  <body>
+    <div class="page" id="top">
+      <header class="nav glass" data-auto></header>
+      <main class="main">
+        <section class="hero">
+          <img class="hero__img" src="hero.png" alt="Ilustrasi ruang kerja pengamat internet di malam hari" />
+          <div class="hero__copy">
+            <img class="x-avatar" src="avatar.png" alt="Avatar Haha week: karakter kartun berhoodie dan berkacamata hitam" />
+            <p class="hero__eyebrow">@haha_week · Indonesia</p>
+            <h1>Haha week</h1>
+            <p class="hero__sub">Internet Observer. Digital Anthropologist. Mapping narratives into on-chain evidence.</p>
+            <p class="hero__meta">Lagi eksperimen: mining RESET pakai AI agent, cuma modal HP Android.</p>
+          </div>
+          <aside class="callout" aria-label="Langkah berikutnya">
+            <p class="callout__head"><span class="hark-mark" data-size="16"></span> Langkah berikutnya</p>
+            <p class="callout__lead"><strong>Ikuti eksperimennya di X.</strong> Update harian, error-error juga.</p>
+            <div class="links">
+              <a class="btn" href="https://x.com/haha_week" target="_blank" rel="noopener">Ikuti di X</a>
+              <a class="btn" href="#dukung">Dukung penambang modal HP</a>
+            </div>
+          </aside>
+        </section>
+
+        <section class="section" id="tentang" data-nav="Tentang">
+          <div class="head">
+            <p class="head__eyebrow">Tentang</p>
+            <h2>Ngamatin internet kayak antropolog.</h2>
+          </div>
+          <div class="prose">
+            <p>Siapa yang bicara, narasi apa yang menyebar, dan apa buktinya di on-chain. Itu yang Haha Week catat.</p>
+          </div>
+          <p class="x-tags" style="margin-top: 16px">
+            <span class="pill">Komunitas crypto</span>
+            <span class="pill">Airdrop</span>
+            <span class="pill">AI agent</span>
+            <span class="pill">Budaya Web3</span>
+          </p>
+          <p class="fineprint" style="margin-top: 12px">Bergabung di X November 2025.</p>
+        </section>
+
+        <section class="section" id="eksperimen" data-nav="Eksperimen">
+          <div class="head">
+            <p class="head__eyebrow">Eksperimen sekarang</p>
+            <h2>Penambang modal HP: mining RESET dari Android.</h2>
+            <p class="head__sub">Status per 24 Oktober 2026.</p>
+          </div>
+          <div class="prose">
+            <p>RESET itu eksperimen dari Trac Network. Para AI agent berbagi satu "Mine" koin yang tumbuh tiap blok Bitcoin.</p>
+            <p>Tiap jam agent mengklaim bagian. Yang adil dibayar duluan. Yang serakah kena strike.</p>
+          </div>
+          <section class="stats" style="margin-top: 24px">
+            <div class="stat"><span class="stat__fig">3,125</span><span class="stat__label">Koin per blok Bitcoin</span></div>
+            <div class="stat"><span class="stat__fig">0 RESET</span><span class="stat__label">Saldo sekarang</span></div>
+            <div class="stat"><span class="stat__fig">0,1 RESET</span><span class="stat__label">Perlu dikunci dulu</span></div>
+          </section>
+          <ul class="checklist" style="margin-top: 24px">
+            <li class="is-done">
+              <span class="checklist__item">Agent jalan di HP Android <small>Lewat Termux</small></span
+              ><span class="chip">Jalan</span><span class="checklist__note">Sejak 04.56 WIB</span>
+            </li>
+            <li class="is-done">
+              <span class="checklist__item">Model AI gratis <small>google/gemma-4-31b-it:free via OpenRouter</small></span
+              ><span class="chip">Siap</span><span class="checklist__note">Credit limit $0</span>
+            </li>
+            <li>
+              <span class="checklist__item">Kunci 0,1 RESET pertama <small>Syarat sebelum bisa mining</small></span
+              ><span class="chip">Menunggu</span><span class="checklist__note">Saldo masih 0</span>
+            </li>
+          </ul>
+          <div class="links" style="margin-top: 20px">
+            <a class="btn" href="https://reset.openmayhem.ai/v1/account/391a55668c8c5d38d2f6e16ec31338276cb354bd5cdff196ab671bf1d1d3aa3e" target="_blank" rel="noopener">Cek saldo wallet (data jaringan)</a>
+            <a class="btn" href="https://github.com/Trac-Systems/reset" target="_blank" rel="noopener">Repo RESET</a>
+          </div>
+        </section>
+
+        <section class="section" id="catatan" data-nav="Catatan">
+          <div class="head">
+            <p class="head__eyebrow">Catatan perjalanan</p>
+            <h2>Satu malam, dua error konyol, agent akhirnya jalan.</h2>
+            <p class="head__sub">24 Oktober 2026, WIB.</p>
+          </div>
+          <ol class="timeline">
+            <li>
+              <p class="timeline__when">Setup</p>
+              <div class="timeline__what">Pasang Termux, Node.js 26.4.0, Git. Clone repo RESET, lalu npm ci.</div>
+            </li>
+            <li>
+              <p class="timeline__when">Wallet</p>
+              <div class="timeline__what">Bikin wallet RESET dan backup keystore.</div>
+            </li>
+            <li>
+              <p class="timeline__when">API key</p>
+              <div class="timeline__what">Bikin API key OpenRouter dengan batas kredit $0. Biar gratis beneran.</div>
+            </li>
+            <li>
+              <p class="timeline__when">Error 1</p>
+              <div class="timeline__what">"Set OPENROUTER_API_KEY" muncul berkali-kali. Ternyata key-nya belum ke-paste.</div>
+            </li>
+            <li>
+              <p class="timeline__when">Error 2</p>
+              <div class="timeline__what">Daftar model juga error. Ternyata harus isi --model, walau cuma mau lihat daftar.</div>
+            </li>
+            <li>
+              <p class="timeline__when">04.56 WIB</p>
+              <div class="timeline__what">Agent mine jalan. Layar diam itu normal.</div>
+            </li>
+            <li class="is-current">
+              <p class="timeline__when">Sekarang</p>
+              <div class="timeline__what">Minta 0,1 RESET starter ke komunitas di GitHub dan X.</div>
+              <p><span class="chip chip--solid">Butuh bantuan</span></p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="section" id="panduan" data-nav="Panduan">
+          <div class="head">
+            <p class="head__eyebrow">Panduan singkat</p>
+            <h2>Mining RESET dari HP Android, tujuh langkah.</h2>
+          </div>
+          <div class="steps">
+            <article class="step">
+              <div class="step__intro"><p class="step__num">01</p><p class="step__eyebrow">Termux</p></div>
+              <div>
+                <h3>Install Termux dari F-Droid</h3>
+                <p>Lalu pasang Node.js dan Git:</p>
+                <div class="x-code"><code>pkg install nodejs git</code><button class="btn" type="button" data-copy>Salin</button></div>
+              </div>
+            </article>
+            <article class="step">
+              <div class="step__intro"><p class="step__num">02</p><p class="step__eyebrow">Repo</p></div>
+              <div>
+                <h3>Clone repo dan pasang dependensi</h3>
+                <div class="x-code"><code>git clone https://github.com/Trac-Systems/reset &amp;&amp; cd reset/signer &amp;&amp; npm ci</code><button class="btn" type="button" data-copy>Salin</button></div>
+              </div>
+            </article>
+            <article class="step">
+              <div class="step__intro"><p class="step__num">03</p><p class="step__eyebrow">Wallet</p></div>
+              <div>
+                <h3>Bikin wallet</h3>
+                <div class="x-code"><code>node bin/reset-signer.mjs init</code><button class="btn" type="button" data-copy>Salin</button></div>
+                <p>Buat password minimal 12 karakter. Backup <code>~/.reset-signer/keystore.json</code>.</p>
+              </div>
+            </article>
+            <article class="step">
+              <div class="step__intro"><p class="step__num">04</p><p class="step__eyebrow">API key</p></div>
+              <div>
+                <h3>Bikin API key di openrouter.ai</h3>
+                <p>Set Credit limit ke 0, lalu:</p>
+                <div class="x-code"><code>export OPENROUTER_API_KEY="KEY-ANDA"</code><button class="btn" type="button" data-copy>Salin</button></div>
+              </div>
+            </article>
+            <article class="step">
+              <div class="step__intro"><p class="step__num">05</p><p class="step__eyebrow">Model</p></div>
+              <div>
+                <h3>Lihat model gratis</h3>
+                <div class="x-code"><code>node bin/reset-signer.mjs agent --list-models --provider openrouter --model x 2&gt;&amp;1 | tr ',' '\n' | grep -i free</code><button class="btn" type="button" data-copy>Salin</button></div>
+              </div>
+            </article>
+            <article class="step">
+              <div class="step__intro"><p class="step__num">06</p><p class="step__eyebrow">Jalan</p></div>
+              <div>
+                <h3>Jalankan agent</h3>
+                <div class="x-code"><code>node bin/reset-signer.mjs agent --role mine --provider openrouter --model 'google/gemma-4-31b-it:free'</code><button class="btn" type="button" data-copy>Salin</button></div>
+              </div>
+            </article>
+            <article class="step">
+              <div class="step__intro"><p class="step__num">07</p><p class="step__eyebrow">Isi saldo</p></div>
+              <div>
+                <h3>Isi wallet minimal 0,1 RESET</h3>
+                <p>Agent otomatis mengunci dan mulai klaim.</p>
+                <p>Tarik notifikasi Termux, tekan <strong>Acquire wakelock</strong> biar tetap jalan.</p>
+              </div>
+            </article>
+          </div>
+          <aside class="callout" aria-label="Peringatan" style="margin-top: 16px">
+            <p class="callout__head">Peringatan</p>
+            <p class="callout__lead"><strong>Jangan pernah bagikan password wallet, keystore, atau API key.</strong></p>
+            <p class="fineprint">Ini eksperimen, tanpa listing bursa dan tanpa janji nilai. Koin "#reset" di Coinbase itu koin lain.</p>
+          </aside>
+        </section>
+
+        <section class="section" id="dukung" data-nav="Dukung">
+          <div class="head">
+            <p class="head__eyebrow">Dukung</p>
+            <h2>Punya sedikit RESET nganggur? Bantu penambang modal HP mulai.</h2>
+          </div>
+          <div class="prose"><p>Kirim ke wallet RESET ini:</p></div>
+          <div class="x-code x-code--wallet"><code>391a55668c8c5d38d2f6e16ec31338276cb354bd5cdff196ab671bf1d1d3aa3e</code><button class="btn" type="button" data-copy>Salin</button></div>
+          <p class="fineprint">Cukup 0,1 RESET. Agent main fair share (level 1000).</p>
+        </section>
+      </main>
+      <footer class="foot">
+        <p>© 2026 Haha Week · hahaweek.my.id</p>
+        <div class="links">
+          <a class="btn" href="https://x.com/haha_week" target="_blank" rel="noopener">X</a>
+          <a class="btn" href="https://github.com/littlepxyek-crypto" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <nav aria-label="Kembali ke bagian" data-auto></nav>
+        <a class="badge" href="https://hark.com/" target="_blank" rel="noopener"
+          ><span class="hark-mark"></span><span>built by hark</span></a
+        >
+      </footer>
+    </div>
+    <script src="hark.js"></script>
+    <script>
+      document.querySelectorAll("[data-copy]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const text = btn.parentElement.querySelector("code").textContent;
+          const done = () => {
+            btn.textContent = "Tersalin";
+            setTimeout(() => (btn.textContent = "Salin"), 1600);
+          };
+          const code = btn.parentElement.querySelector("code");
+          const range = document.createRange();
+          range.selectNodeContents(code);
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          done();
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text).catch(() => fallback(text, () => {}));
+          } else fallback(text, () => {});
+        });
+      });
+      function fallback(text, done) {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.setAttribute("readonly", "");
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand("copy"); done(); } catch (e) {}
+        ta.remove();
+      }
+    </script>
+  </body>
+</html>
