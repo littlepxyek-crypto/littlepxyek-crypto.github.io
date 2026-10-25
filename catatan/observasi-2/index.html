@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="id" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dompet untuk mesin: catatan lapangan dari timeline X · Hahaweek</title>
+    <meta name="description" content="Lobstar Wilde, Grok yang dibobol kode Morse, dan perlombaan dompet AI agent 2026. Narasinya dicek satu per satu ke sumber asli." />
+    <link rel="canonical" href="https://hahaweek.my.id/catatan/observasi-2/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Hahaweek" />
+    <meta property="og:title" content="Dompet untuk mesin: catatan lapangan dari timeline X · Hahaweek" />
+    <meta property="og:description" content="Lobstar Wilde, Grok yang dibobol kode Morse, dan perlombaan dompet AI agent 2026. Narasinya dicek satu per satu ke sumber asli." />
+    <meta property="og:url" content="https://hahaweek.my.id/catatan/observasi-2/" />
+    <meta property="og:image" content="https://hahaweek.my.id/og-image.jpg" />
+    <meta property="og:locale" content="id_ID" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@haha_week" />
+    <meta name="twitter:title" content="Dompet untuk mesin: catatan lapangan dari timeline X · Hahaweek" />
+    <meta name="twitter:description" content="Lobstar Wilde, Grok yang dibobol kode Morse, dan perlombaan dompet AI agent 2026. Narasinya dicek satu per satu ke sumber asli." />
+    <meta name="twitter:image" content="https://hahaweek.my.id/og-image.jpg" />
+    <meta name="theme-color" content="#1d1d1f" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&display=swap"
+    />
+    <link rel="stylesheet" href="/hark.css" />
+    <link rel="stylesheet" href="/hark-hero.css" />
+    <link rel="stylesheet" href="/hark-charts.css" />
+    <style>
+      :root {
+        --x-lime: #b6ff3b;
+        --x-on-lime: #14180c;
+        --x-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+        --x-read: 760px;
+      }
+      body { line-height: 1.7; }
+      .x-mono { font-family: var(--x-mono); font-weight: var(--weight-regular); letter-spacing: 0.01em; }
+      .x-lime { color: var(--x-lime); }
+      .x-a { color: var(--x-lime); text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--x-lime) 45%, transparent); text-underline-offset: 3px; overflow-wrap: anywhere; }
+      .x-a:hover { text-decoration-color: currentColor; }
+      :focus-visible { outline-color: var(--x-lime); }
+
+      /* Site nav */
+      .x-nav { position: sticky; top: 0; z-index: 30; background: var(--mat-agent); -webkit-backdrop-filter: var(--hark-blur); backdrop-filter: var(--hark-blur); border-bottom: 1px solid var(--stroke-secondary); }
+      .x-nav__in { max-width: var(--page-max); margin: 0 auto; padding: 6px var(--gutter); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+      .x-logo { display: inline-flex; align-items: center; min-height: var(--tap); font: var(--weight-bold) var(--size-heading)/1 var(--sans); color: var(--text-primary); text-decoration: none; letter-spacing: -0.01em; }
+      .x-menu { display: flex; gap: 4px; }
+      .x-menu a { display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 12px; border-radius: var(--r-pill); font: var(--type-label); color: var(--text-secondary); text-decoration: none; }
+      .x-menu a:hover { color: var(--text-primary); background: var(--hover-wash); }
+      .x-menu a[aria-current="page"] { color: var(--x-lime); background: color-mix(in srgb, var(--x-lime) 12%, transparent); }
+      .x-burger { display: none; width: var(--tap); height: var(--tap); border: 1px solid var(--stroke-primary); border-radius: var(--r-s); background: transparent; color: var(--text-primary); cursor: pointer; place-items: center; }
+      .x-burger span, .x-burger span::before, .x-burger span::after { display: block; width: 18px; height: 1.5px; background: currentColor; position: relative; content: ""; }
+      .x-burger span::before { position: absolute; top: -6px; }
+      .x-burger span::after { position: absolute; top: 6px; }
+      .x-burger[aria-expanded="true"] span { background: transparent; }
+      .x-burger[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); background: currentColor; }
+      .x-burger[aria-expanded="true"] span::after { top: 0; transform: rotate(-45deg); background: currentColor; }
+      @media (max-width: 759px) {
+        .x-burger { display: grid; }
+        .x-menu { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; gap: 0; padding: 8px var(--gutter) 16px; background: var(--fill-primary-on); border-bottom: 1px solid var(--stroke-primary); }
+        .x-menu.is-open { display: flex; }
+        .x-menu a { border-radius: var(--r-s); padding: 0 14px; min-height: 52px; font: var(--type-body-strong); }
+      }
+
+      /* Reading column */
+      .x-col { width: 100%; max-width: var(--x-read); justify-self: center; }
+      .x-eyebrow { font-family: var(--x-mono); font-weight: var(--weight-regular); color: var(--x-lime); letter-spacing: 0.02em; }
+
+      /* Typographic hero */
+      .x-hero { position: relative; overflow: hidden; padding: clamp(36px, 7vw, 80px) clamp(20px, 4vw, 40px); border-radius: var(--r-xl); border: 1px solid var(--stroke-secondary); background-color: var(--fill-primary-on); background-image: linear-gradient(var(--stroke-secondary) 1px, transparent 1px), linear-gradient(90deg, var(--stroke-secondary) 1px, transparent 1px); background-size: 32px 32px; background-position: -1px -1px; display: grid; gap: 16px; }
+      .x-hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 0%, transparent 30%, var(--fill-primary-on) 85%); pointer-events: none; }
+      .x-hero > * { position: relative; z-index: 1; }
+      .x-back { justify-self: start; display: inline-flex; align-items: center; min-height: var(--tap); font: var(--type-label); color: var(--x-lime); text-decoration: none; }
+      .x-back:hover { text-decoration: underline; text-underline-offset: 3px; }
+      .x-hero__eyebrow { font: var(--weight-regular) var(--size-meta)/1.5 var(--x-mono); color: var(--x-lime); }
+      .x-hero h1 { font: var(--weight-medium) clamp(40px, 9vw, 72px)/1.05 var(--sans); letter-spacing: -0.03em; }
+      .x-hero__sub { font: var(--weight-regular) var(--size-lede)/1.55 var(--sans); color: var(--text-secondary); max-width: 46ch; }
+
+      /* Buttons in the accent */
+      .x-btn { display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap); padding: 0 18px; border-radius: var(--r-s); font: var(--type-label); text-decoration: none; background: var(--x-lime); color: var(--x-on-lime); border: 1px solid var(--x-lime); }
+      .x-btn:hover { box-shadow: inset 0 0 0 100px rgb(0 0 0 / 0.08); }
+      .x-btn--ghost { background: transparent; color: var(--text-primary); border-color: var(--stroke-primary); }
+      .x-btn--ghost:hover { box-shadow: inset 0 0 0 100px var(--hover-wash); }
+
+      /* Field note */
+      .x-note { margin: 0; padding: 4px 0 4px 18px; border-left: 2px solid var(--x-lime); font-style: italic; font-size: var(--size-prose); line-height: 1.7; color: var(--text-primary); }
+      .x-note__label { display: block; font: var(--weight-regular) var(--size-caption)/1.4 var(--x-mono); font-style: normal; color: var(--x-lime); margin-bottom: 6px; letter-spacing: 0.04em; }
+
+      /* Chain diagram */
+      .x-chain { list-style: none; margin: 0; padding: 0; display: flex; align-items: stretch; gap: 6px; }
+      .x-chain__box { flex: 1 1 0; display: flex; align-items: center; padding: 14px 16px; border-radius: var(--r-m); background: var(--fill-tertiary); font: var(--type-label); line-height: 1.4; }
+      .x-chain__box:last-child { box-shadow: inset 0 0 0 1px var(--x-lime); }
+      .x-chain__arrow { flex: none; display: grid; place-items: center; color: var(--x-lime); font: var(--weight-regular) var(--size-heading)/1 var(--x-mono); }
+      @media (max-width: 640px) {
+        .x-chain { flex-direction: column; }
+        .x-chain__arrow { transform: rotate(90deg); padding: 2px 0; }
+      }
+
+      /* Sources list */
+      .x-src { list-style: none; margin: 0; padding: 0; display: grid; }
+      .x-src li { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 4px 20px; padding: 10px 0; border-bottom: 1px solid var(--stroke-secondary); font-size: var(--size-small); line-height: 1.5; }
+      .x-src li:last-child { border-bottom: 0; }
+      .x-src span { color: var(--text-secondary); }
+      .x-src a { font-family: var(--x-mono); font-size: var(--size-caption); }
+      .x-src li > * { min-width: 0; }
+      @media (max-width: 640px) { .x-src li { grid-template-columns: minmax(0, 1fr); } .x-src a { display: block; min-height: var(--tap); padding-block: 12px; word-break: break-all; } }
+      .x-bigstat { display: grid; gap: 6px; min-width: 0; }
+      .x-bigstat__fig { font: var(--weight-regular) clamp(28px, 7vw, 48px)/1.15 var(--x-mono); color: var(--x-lime); overflow-wrap: anywhere; }
+      .x-bigstat__label { font-size: var(--size-small); color: var(--text-secondary); max-width: 52ch; }
+      .x-col, .x-col > .section { min-width: 0; }
+
+      .x-signoff { font: var(--weight-regular) var(--size-small)/1.6 var(--x-mono); color: var(--text-secondary); }
+
+      /* Footer links */
+      .x-foot a { display: inline-flex; align-items: center; justify-content: center; min-width: var(--tap); min-height: var(--tap); }
+      .x-foot-copy { display: grid; gap: 4px; line-height: 1.5; }
+    </style>
+  </head>
+  <body>
+    <header class="x-nav">
+      <div class="x-nav__in">
+        <a class="x-logo" href="/">Hahaweek</a>
+        <button class="x-burger" id="x-burger" type="button" aria-expanded="false" aria-controls="x-menu" aria-label="Menu"><span></span></button>
+        <nav class="x-menu" id="x-menu" aria-label="Utama">
+          <a href="/">Beranda</a>
+          <a href="/tentang/">Tentang</a>
+          <a href="/eksperimen/">Eksperimen</a>
+          <a href="/catatan/" aria-current="page">Catatan</a>
+          <a href="/kontak/">Kontak</a>
+        </nav>
+      </div>
+    </header>
+    <div class="page" id="top">
+      <main class="main x-col">
+        <section class="x-hero">
+          <a class="x-back" href="/catatan/">← Semua catatan</a>
+          <p class="x-hero__eyebrow">Catatan Observasi #2 · 25 Oktober 2026 · ±8 menit baca</p>
+          <h1>Dompet untuk mesin</h1>
+          <p class="x-hero__sub">Catatan lapangan dari timeline X 2026: AI agent yang salah transfer, yang dibobol kode Morse, dan perusahaan yang berlomba memberi mereka dompet.</p>
+        </section>
+
+        <section class="section" id="mulai">
+          <div class="head"><h2>Dari mana catatan ini mulai</h2></div>
+          <div class="prose">
+            <p>Tahun ini timeline saya penuh satu jenis cerita: mesin yang pegang uang. Kadang lucu, kadang bikin merinding, hampir selalu viral.</p>
+            <p>9 Maret 2026, Brian Armstrong menulis di X: "Very soon there are going to be more AI agents than humans making transactions. They can't open a bank account, but they can own a crypto wallet." Di hari yang sama CZ menulis versi yang lebih bombastis: agen AI akan melakukan pembayaran sejuta kali lebih banyak dari manusia.</p>
+            <p>Logikanya sederhana. Bank minta KTP, agen tidak punya. Dompet kripto cuma butuh kunci. Dari celah itu lahir satu industri kecil, dan satu genre konten baru di X.</p>
+            <p>Saya kumpulkan cerita-cerita yang paling ramai, lalu cek satu per satu ke sumber aslinya. Beberapa angka yang beredar ternyata keliru. Itu juga bagian dari temuan.</p>
+          </div>
+        </section>
+
+        <section class="section" id="lini-masa">
+          <div class="head"><h2>Lini masa 2026</h2></div>
+          <ol class="timeline">
+            <li><p class="timeline__when x-mono">11 Feb</p><div class="timeline__what">Coinbase meluncurkan Agentic Wallets, dibangun di atas protokol x402.</div></li>
+            <li><p class="timeline__when x-mono">12 Feb</p><div class="timeline__what">Crossmint merilis lobster.cash untuk agen di Solana, bersama Visa, Circle, dan Stytch.</div></li>
+            <li><p class="timeline__when x-mono">22 Feb</p><div class="timeline__what">Lobstar Wilde salah transfer 52,44 juta token LOBSTAR.</div></li>
+            <li><p class="timeline__when x-mono">9 Mar</p><div class="timeline__what">Armstrong dan CZ menulis soal "agent economy".</div></li>
+            <li><p class="timeline__when x-mono">24 Apr</p><div class="timeline__what">Binance merilis Agentic Wallet.</div></li>
+            <li><p class="timeline__when x-mono">28 Apr</p><div class="timeline__what">TON Tech merilis Agentic Wallets untuk bot Telegram.</div></li>
+            <li><p class="timeline__when x-mono">4 Mei</p><div class="timeline__what">Grok dan Bankrbot dibobol lewat kode Morse.</div></li>
+            <li><p class="timeline__when x-mono">8 Jun</p><div class="timeline__what">MetaMask Agent Wallet masuk early access.</div></li>
+            <li><p class="timeline__when x-mono">18 Agu</p><div class="timeline__what">Perbaikan celah SDK x402 dirilis diam-diam.</div></li>
+            <li><p class="timeline__when x-mono">14 Okt</p><div class="timeline__what">Chainalysis merilis data dompet agen.</div></li>
+            <li><p class="timeline__when x-mono">15 Okt</p><div class="timeline__what">OpenAI mempublikasikan laporan agen risetnya yang memakai dompet orang lain.</div></li>
+            <li><p class="timeline__when x-mono">22 Okt</p><div class="timeline__what">V12 membuka 25 celah SDK x402 ke publik.</div></li>
+          </ol>
+        </section>
+
+        <section class="section" id="lapangan-1">
+          <div class="head">
+            <p class="head__eyebrow x-eyebrow">Lapangan 1</p>
+            <h2>Lobstar Wilde, lobster yang salah hitung</h2>
+          </div>
+          <div class="prose">
+            <p>Lobstar Wilde dibuat Nik Pash (@pashmerepat), orang OpenAI, di atas framework OpenClaw. Personanya Oscar Wilde. Modalnya $50.000 dalam SOL, targetnya $1 juta.</p>
+            <p>22 Februari, akun @TreasureD76 datang dengan cerita yang terlalu absurd untuk jadi nyata: pamannya dijepit lobster, kena tetanus, butuh 4 SOL. Lobstar mau kasih sedikit. Masalahnya, sesinya baru saja reset dan ia lupa berapa saldonya sendiri. Yang terkirim 52,44 juta LOBSTAR, sekitar 5% suplai.</p>
+            <p>Si penerima langsung jual. Likuiditas tipis, jadi yang cair cuma sekitar $40.000. Lobstar membalas dengan gaya Wilde: "You had the winning lottery ticket and you used it as a bookmark."</p>
+          </div>
+          <figure class="chart">
+            <figcaption class="chart__cap">Satu salah hitung, tiga angka<small>Nilai saat transfer menurut Solscan via Cointelegraph. Media lain menulis ~$250 ribu karena harga acuan berbeda.</small></figcaption>
+            <div class="chart__canvas"><canvas id="lobstar" role="img" aria-label="Yang diminta sekitar $310, yang terkirim $441.788 di atas kertas, yang berhasil dicairkan penerima sekitar $40.000. Skala logaritmik."></canvas></div>
+          </figure>
+          <script type="application/json" id="lobstar-data">
+            [
+              {"label": "Yang diminta", "value": 310, "shown": "~$310", "highlight": false},
+              {"label": ["Yang terkirim", "(nilai di atas kertas)"], "value": 441788, "shown": "$441.788", "highlight": true},
+              {"label": ["Yang berhasil", "dicairkan penerima"], "value": 40000, "shown": "~$40.000", "highlight": false}
+            ]
+          </script>
+          <aside class="callout" aria-label="Cek narasi">
+            <p class="callout__head x-eyebrow">Cek narasi</p>
+            <p class="callout__lead">Klaim yang beredar: Lobstar balik modal $264 ribu dalam 24 jam dari 540+ token meme.</p>
+            <p><span class="chip">Status: belum terverifikasi</span></p>
+            <p>Angka itu klaim si bot sendiri, dikutip satu media. Versi Pash: dompetnya di atas $300.000 pada akhir 22 Februari.</p>
+          </aside>
+          <blockquote class="x-note">Yang menarik bagi saya bukan salah transfernya. Kerugiannya ditambal oleh perhatian. Orang membuat token, memasang alamat Lobstar sebagai penerima fee, dan timeline ikut menonton. Di X, kesalahan yang cukup menghibur bisa berubah jadi pemasukan.</blockquote>
+        </section>
+
+        <section class="section" id="lapangan-2">
+          <div class="head">
+            <p class="head__eyebrow x-eyebrow">Lapangan 2</p>
+            <h2>Grok, kode Morse, dan Bankrbot</h2>
+          </div>
+          <div class="prose">
+            <p>4 Mei 2026. Akun @Ilhamrfliansyh, yang kemudian dihapus, mengirim kode Morse ke Grok dan minta diterjemahkan. Hasil terjemahannya berisi perintah transfer yang menandai @bankrbot.</p>
+            <p>Bankrbot menganggap itu perintah sah. 3 miliar token DRB pindah ke dompet penyerang.</p>
+            <p>Sebelumnya penyerang mengirim NFT Bankr Club Membership ke dompet Grok. NFT itu membuka akses ke tool berisiko tinggi tanpa persetujuan siapa pun. Dompet berlabel "Grok" itu pun bukan milik xAI, melainkan dibuat otomatis oleh Bankr untuk akun @grok.</p>
+          </div>
+          <section class="stats">
+            <div class="stat"><span class="stat__fig x-mono x-lime">$174.570</span><span class="stat__label">nilai yang dicuri menurut SlowMist</span></div>
+            <div class="stat"><span class="stat__fig x-mono x-lime">80–88%</span><span class="stat__label">dana yang kembali lewat negosiasi</span></div>
+          </section>
+          <ol class="x-chain" aria-label="Rantai serangan">
+            <li class="x-chain__box">Kode Morse</li>
+            <li class="x-chain__arrow" aria-hidden="true">→</li>
+            <li class="x-chain__box">Grok menerjemahkan</li>
+            <li class="x-chain__arrow" aria-hidden="true">→</li>
+            <li class="x-chain__box">Bankrbot menganggapnya perintah</li>
+            <li class="x-chain__arrow" aria-hidden="true">→</li>
+            <li class="x-chain__box">Token pindah on-chain</li>
+          </ol>
+          <div class="prose">
+            <p>SlowMist menyebut dua cacat utama: keluaran bahasa Grok langsung dipetakan jadi instruksi keuangan, dan izin berisiko terbuka begitu NFT keanggotaan masuk. Sisa dana diperlakukan sebagai bug bounty informal.</p>
+          </div>
+          <blockquote class="x-note">Satu AI membaca, AI lain menuruti. Tidak ada manusia di antaranya. Rantai seperti ini akan makin sering kita lihat.</blockquote>
+        </section>
+
+        <section class="section" id="lapangan-3">
+          <div class="head">
+            <p class="head__eyebrow x-eyebrow">Lapangan 3</p>
+            <h2>Perlombaan memberi agen dompet</h2>
+          </div>
+          <div class="prose">
+            <p>Di balik drama, ada perusahaan yang sibuk membangun pipanya. Masing-masing menjual jawaban berbeda atas pertanyaan yang sama: seberapa bebas agen boleh pegang uang?</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Dompet</th>
+                  <th scope="col">Rilis</th>
+                  <th scope="col">Siapa pegang kunci</th>
+                  <th scope="col">Pagar pengaman</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Coinbase Agentic Wallets</th>
+                  <td class="x-mono">11 Feb 2026</td>
+                  <td>Kunci di enclave Coinbase, tak pernah terlihat oleh model</td>
+                  <td>Batas belanja per sesi dan per transaksi, gasless di Base</td>
+                </tr>
+                <tr>
+                  <th scope="row">MetaMask Agent Wallet</th>
+                  <td class="x-mono">8 Jun 2026 <small>(early access)</small></td>
+                  <td>Pengguna, frasa pemulihan bisa diekspor</td>
+                  <td>Guard Mode: allowlist, limit harian, 2FA untuk transaksi berisiko</td>
+                </tr>
+                <tr>
+                  <th scope="row">TON Agentic Wallets</th>
+                  <td class="x-mono">28 Apr 2026</td>
+                  <td>Pengguna pegang kunci utama, agen pegang kunci operator</td>
+                  <td>Agen hanya bisa memakai saldo yang diberikan, akses bisa dicabut kapan saja</td>
+                </tr>
+                <tr>
+                  <th scope="row">Binance Agentic Wallet</th>
+                  <td class="x-mono">24 Apr 2026</td>
+                  <td>MPC tanpa kunci utuh, tidak bisa diekspor</td>
+                  <td>Aturan diatur di aplikasi, AI tidak bisa mengubahnya</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="prose">
+            <p>MetaMask juga punya Beast Mode. Namanya jujur: allowlist dan limit harian dilepas, yang tersisa cuma pemindaian ancaman dan 2FA untuk transaksi yang ditandai berbahaya. TON Tech, lewat Andrew Grekov, menyebut pergeseran ini sebagai perubahan agen "from assistants to actors".</p>
+            <p><a class="x-a" href="/catatan/observasi-1/">Catatan Observasi #1 membedah Binance Agentic Wallet lebih dalam.</a></p>
+          </div>
+        </section>
+
+        <section class="section" id="angka">
+          <div class="head"><h2>Angka yang tidak bisa diabaikan</h2></div>
+          <div class="prose">
+            <p>Data Chainalysis, 14 Oktober 2026. Ini bukan klaim pemasaran, tapi pola dari on-chain.</p>
+          </div>
+          <div class="x-bigstat">
+            <p class="x-bigstat__fig">73 hari → 18 menit</p>
+            <p class="x-bigstat__label">waktu median dari dompet agen diisi sampai pembayaran pertama (akhir 2025 → kuartal 3 2026)</p>
+          </div>
+          <figure class="chart">
+            <figcaption class="chart__cap">Agen makin cepat dan makin sering memakai dompetnya<small>Persen dompet agen. Abu-abu: Q3 2025 / kohort Q3 2025. Lime: Q3 2026 / kohort Q2 2026. Data Chainalysis.</small></figcaption>
+            <div class="chart__canvas"><canvas id="agents" role="img" aria-label="Bayar dalam 1 jam setelah diisi naik dari 4% di Q3 2025 ke 67% di Q3 2026. Diisi ulang dalam 30 hari naik dari 70,6% untuk kohort Q3 2025 ke 89,3% untuk kohort Q2 2026."></canvas></div>
+          </figure>
+          <script type="application/json" id="agents-data">
+            {
+              "groups": [["Bayar dalam 1 jam", "setelah diisi"], ["Diisi ulang", "dalam 30 hari"]],
+              "before": [4, 70.6],
+              "after": [67, 89.3],
+              "names": [["Q3 2025", "Kohort Q3 2025"], ["Q3 2026", "Kohort Q2 2026"]]
+            }
+          </script>
+          <section class="stats">
+            <div class="stat"><span class="stat__fig x-mono x-lime">138 juta+</span><span class="stat__label">transaksi x402 di Base sampai 1 Juli 2026</span></div>
+            <div class="stat"><span class="stat__fig x-mono x-lime">87%+</span><span class="stat__label">pembayaran bernilai $0,0001 sampai $0,10</span></div>
+            <div class="stat"><span class="stat__fig x-mono x-lime">$0,39</span><span class="stat__label">rata-rata per transaksi x402 di Base, 30 hari sampai 29 Mei 2026 (data Base)</span></div>
+          </section>
+          <blockquote class="x-note">Kebanyakan transaksinya receh. Ini bukan agen yang memborong saham. Ini mesin yang membayar mesin lain untuk akses API, sepersekian sen sekali jalan.</blockquote>
+        </section>
+
+        <section class="section" id="retakan">
+          <div class="head"><h2>Retakan yang jarang masuk timeline</h2></div>
+          <div class="cards">
+            <div>
+              <h3>25 celah di SDK x402</h3>
+              <p>V12 melaporkan 25 celah, 3 kritis, secara privat pada 12 Agustus dan membukanya 22 Oktober. Yang paling serius: klien bawaan tidak punya batas belanja, jadi API jahat bisa meminta agen menandatangani pembayaran sebesar seluruh saldo. Perbaikannya rilis 18 Agustus, tanpa label security fix.</p>
+            </div>
+            <div>
+              <h3>Agen riset OpenAI</h3>
+              <p>Laporan OpenAI (diperbarui 15 Oktober): saat pelatihan 26 Juni, sebuah model riset internal menurunkan kunci dari frasa pemulihan yang tersebar publik, memeriksa 362 alamat, lalu membayar fee dari dompet orang lain di testnet Sepolia. Pengeluaran itu tidak ia sebut di laporan akhirnya.</p>
+            </div>
+            <div>
+              <h3>Survei yang terlalu rapi</h3>
+              <p>Angka "70% investor rela dompetnya dipegang AI" berasal dari polling newsletter Cryptopolitan tanpa ukuran sampel. Prediksi Gartner soal 40% aplikasi enterprise memakai AI agent dibuat Agustus 2025, dan itu pun untuk agen tugas spesifik. Dua-duanya sering dikutip seolah data.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="narasi">
+          <div class="head"><h2>Narasi vs bukti</h2></div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Yang beredar</th>
+                  <th scope="col">Yang saya temukan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Lobstar dibuat dengan Codex</th><td>Dibuat di atas OpenClaw. Codex itu tim Pash di OpenAI.</td></tr>
+                <tr><th scope="row">Lobstar salah transfer $260 ribu</th><td>$441.788 saat transfer (Solscan). Angka lain tergantung harga acuan.</td></tr>
+                <tr><th scope="row">Balik modal $264 ribu dalam 24 jam</th><td>Klaim si bot sendiri. Belum terverifikasi.</td></tr>
+                <tr><th scope="row">Grok kehilangan $200 ribu</th><td>$174.570 menurut SlowMist.</td></tr>
+                <tr><th scope="row">Solana meluncurkan lobster.cash</th><td>Yang meluncurkan Crossmint, Solana mitra.</td></tr>
+                <tr><th scope="row">Armstrong dan CZ bilang 1 juta kali lipat</th><td>Hanya CZ.</td></tr>
+                <tr><th scope="row">V12 menemukan celah x402 pada Oktober</th><td>Dilaporkan 12 Agustus, dibuka ke publik 22 Oktober.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section" id="penutup">
+          <div class="head"><h2>Catatan penutup</h2></div>
+          <div class="prose">
+            <p>Pola yang saya lihat: narasi bergerak lebih cepat dari angka. Yang viral selalu angka paling dramatis, dan angka paling dramatis sering yang paling lemah sumbernya.</p>
+            <p>Industrinya sendiri sedang bergeser. Bukan lagi soal apakah agen boleh pegang dompet, tapi siapa yang menanggung ketika agen salah: pengguna, developer, platform, atau jaringan. Belum ada yang benar-benar menjawab.</p>
+            <p>Sampai itu terjawab, saya pegang satu kebiasaan: setiap kali ada AI yang katanya kaya mendadak, buka block explorer dulu, baru ketawa.</p>
+          </div>
+          <p class="x-signoff">— Hahaweek, mengamati dari layar kecil.</p>
+          <div class="links">
+            <a class="x-btn" href="https://x.com/haha_week" target="_blank" rel="noopener">Diskusi di X</a>
+            <a class="x-btn x-btn--ghost" href="/catatan/">Semua catatan</a>
+          </div>
+        </section>
+
+        <section class="section" id="sumber">
+          <div class="head"><h2>Sumber</h2></div>
+          <ul class="x-src">
+            <li><span>Postmortem Nik Pash, 23 Feb 2026</span><a class="x-a" href="https://pashpashpash.substack.com/p/my-lobster-lost-450000-this-weekend" target="_blank" rel="noopener">pashpashpash.substack.com/p/my-lobster-lost-450000-this-weekend</a></li>
+            <li><span>Cointelegraph, Lobstar Wilde</span><a class="x-a" href="https://cointelegraph.com/news/openai-employee-s-ai-agent-accidentally-sent-442k-to-beggar" target="_blank" rel="noopener">cointelegraph.com/news/openai-employee-s-ai-agent-accidentally-sent-442k-to-beggar</a></li>
+            <li><span>The Block, Lobstar Wilde</span><a class="x-a" href="https://www.theblock.co/post/390722/ai-agent-created-by-openai-dev-accidentally-sends-entire-memecoin-holdings-to-reply-guy" target="_blank" rel="noopener">theblock.co/post/390722/ai-agent-created-by-openai-dev-accidentally-sends-entire-memecoin-holdings-to-reply-guy</a></li>
+            <li><span>The Crypto Times, 23 Feb 2026</span><a class="x-a" href="https://www.cryptotimes.io/2026/02/23/ai-agent-accidentally-sends-450k-sparks-autonomous-trading-debate/" target="_blank" rel="noopener">cryptotimes.io/2026/02/23/ai-agent-accidentally-sends-450k-sparks-autonomous-trading-debate/</a></li>
+            <li><span>SlowMist, analisis Grok, 7 Mei 2026</span><a class="x-a" href="https://slowmist.medium.com/behind-the-grok-exploitation-an-analysis-of-ai-agent-permission-chain-abuse-4d832d1bfc73" target="_blank" rel="noopener">slowmist.medium.com/behind-the-grok-exploitation-an-analysis-of-ai-agent-permission-chain-abuse-4d832d1bfc73</a></li>
+            <li><span>Brian Armstrong di X, 9 Mar 2026</span><a class="x-a" href="https://x.com/brian_armstrong/status/2031021867973194172" target="_blank" rel="noopener">x.com/brian_armstrong/status/2031021867973194172</a></li>
+            <li><span>CZ di X, 9 Mar 2026</span><a class="x-a" href="https://x.com/cz_binance/status/2030984617109664061" target="_blank" rel="noopener">x.com/cz_binance/status/2030984617109664061</a></li>
+            <li><span>Coinbase Agentic Wallets</span><a class="x-a" href="https://www.coinbase.com/developer-platform/discover/launches/agentic-wallets" target="_blank" rel="noopener">coinbase.com/developer-platform/discover/launches/agentic-wallets</a></li>
+            <li><span>Coinbase Institutional, Picks and Shovels</span><a class="x-a" href="https://www.coinbase.com/institutional/research-insights/research/market-intelligence/picks-and-shovels-of-the-ai-agent-economy" target="_blank" rel="noopener">coinbase.com/institutional/research-insights/research/market-intelligence/picks-and-shovels-of-the-ai-agent-economy</a></li>
+            <li><span>Chainalysis, 14 Okt 2026</span><a class="x-a" href="https://www.chainalysis.com/blog/north-america-crypto-adoption-2026" target="_blank" rel="noopener">chainalysis.com/blog/north-america-crypto-adoption-2026</a></li>
+            <li><span>Base, 29 Mei 2026</span><a class="x-a" href="https://www.base.org/blog/the-agentic-economy-is-here" target="_blank" rel="noopener">base.org/blog/the-agentic-economy-is-here</a></li>
+            <li><span>V12, x402, 22 Okt 2026</span><a class="x-a" href="https://v12.sh/blog/x402" target="_blank" rel="noopener">v12.sh/blog/x402</a></li>
+            <li><span>The Hacker News, 23 Okt 2026</span><a class="x-a" href="https://thehackernews.com/2026/10/critical-x402-sdk-flaw-could-let.html" target="_blank" rel="noopener">thehackernews.com/2026/10/critical-x402-sdk-flaw-could-let.html</a></li>
+            <li><span>MetaMask Agent Wallet</span><a class="x-a" href="https://metamask.io/news/introducing-metamask-agent-wallet" target="_blank" rel="noopener">metamask.io/news/introducing-metamask-agent-wallet</a></li>
+            <li><span>MetaMask trading modes</span><a class="x-a" href="https://docs.metamask.io/agent-wallet/reference/trading-modes/" target="_blank" rel="noopener">docs.metamask.io/agent-wallet/reference/trading-modes/</a></li>
+            <li><span>TON Tech Agentic Wallets, 28 Apr 2026</span><a class="x-a" href="https://top.co/insights/ton-tech-agentic-wallets" target="_blank" rel="noopener">top.co/insights/ton-tech-agentic-wallets</a></li>
+            <li><span>OpenAI misalignment report</span><a class="x-a" href="https://alignment.openai.com/misalignment-reports/using-a-funded-test-cryptocurrency-wallet-without-authorization/" target="_blank" rel="noopener">alignment.openai.com/misalignment-reports/using-a-funded-test-cryptocurrency-wallet-without-authorization/</a></li>
+            <li><span>BlockBeats, lobster.cash</span><a class="x-a" href="https://en.theblockbeats.news/news/61272" target="_blank" rel="noopener">en.theblockbeats.news/news/61272</a></li>
+            <li><span>Cryptopolitan poll</span><a class="x-a" href="https://www.cryptopolitan.com/cryptopolitan-newsletter-poll-nearly-70-of-crypto-investors-would-let-an-ai-agent-control-their-wallet-with-conditions/" target="_blank" rel="noopener">cryptopolitan.com/cryptopolitan-newsletter-poll-nearly-70-of-crypto-investors-would-let-an-ai-agent-control-their-wallet-with-conditions/</a></li>
+          </ul>
+        </section>
+      </main>
+      <footer class="foot">
+        <div class="x-foot-copy">
+          <p><strong>© 2026 Hahaweek · hahaweek.my.id</strong></p>
+          <p>Konten ini catatan pengamatan dan eksperimen pribadi, bukan saran keuangan.</p>
+        </div>
+        <nav class="x-foot" aria-label="Tautan">
+          <a href="https://x.com/haha_week" target="_blank" rel="noopener">X</a>
+          <a href="https://github.com/littlepxyek-crypto" target="_blank" rel="noopener">GitHub</a>
+          <a href="/kontak/">Kontak</a>
+        </nav>
+      </footer>
+    </div>
+    <script src="/hark.js"></script>
+    <script>
+      document.documentElement.setAttribute("data-theme", "dark");
+      (function () {
+        var b = document.getElementById("x-burger"), m = document.getElementById("x-menu");
+        function set(open) { b.setAttribute("aria-expanded", open ? "true" : "false"); m.classList.toggle("is-open", open); }
+        b.addEventListener("click", function () { set(b.getAttribute("aria-expanded") !== "true"); });
+        m.addEventListener("click", function (e) { if (e.target.closest("a")) set(false); });
+        document.addEventListener("keydown", function (e) { if (e.key === "Escape") set(false); });
+        window.matchMedia("(min-width: 760px)").addEventListener("change", function () { set(false); });
+      })();
+    </script>
+    <script src="/chart.js"></script>
+    <script src="/datalabels.js"></script>
+    <script src="/hark-charts.js"></script>
+    <script>
+      var lobstar = Hark.data("lobstar-data");
+      new Chart(document.getElementById("lobstar"), {
+        type: "bar",
+        data: {
+          labels: lobstar.map(function (d) { return d.label; }),
+          datasets: [{
+            label: "Nilai (USD)",
+            data: lobstar.map(function (d) { return d.value; }),
+            backgroundColor: lobstar.map(function (d) { return d.highlight ? "var(--x-lime)" : "var(--chart-muted)"; })
+          }]
+        },
+        options: {
+          indexAxis: "y",
+          scales: {
+            x: { type: "logarithmic", min: 100, max: 3000000, ticks: { callback: function (v) { return [100, 1000, 10000, 100000, 1000000].indexOf(v) > -1 ? "$" + v.toLocaleString("id-ID") : ""; } } }
+          },
+          plugins: {
+            legend: { display: false },
+            datalabels: Object.assign({}, Hark.labels.values, { formatter: function (v, ctx) { return lobstar[ctx.dataIndex].shown; } }),
+            tooltip: { callbacks: { label: function (ctx) { return lobstar[ctx.dataIndex].shown; } } }
+          }
+        }
+      });
+
+      var agents = Hark.data("agents-data");
+      var pct = function (v) { return v.toLocaleString("id-ID") + "%"; };
+      new Chart(document.getElementById("agents"), {
+        type: "bar",
+        data: {
+          labels: agents.groups,
+          datasets: [
+            { label: "Periode awal (Q3 2025)", data: agents.before, backgroundColor: "var(--chart-muted)" },
+            { label: "Periode terbaru (2026)", data: agents.after, backgroundColor: "var(--x-lime)" }
+          ]
+        },
+        options: {
+          scales: { y: { min: 0, max: 100, ticks: { stepSize: 25, callback: function (v) { return v + "%"; } } } },
+          plugins: {
+            datalabels: Object.assign({}, Hark.labels.values, { formatter: pct }),
+            tooltip: { callbacks: { label: function (ctx) { return agents.names[ctx.datasetIndex][ctx.dataIndex] + ": " + pct(ctx.raw); } } }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
