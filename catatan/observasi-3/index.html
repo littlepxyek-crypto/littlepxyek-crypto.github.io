@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="id" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tiga hari jadi kaelira.ai: catatan lapangan Agent ID · Hahaweek</title>
+    <meta name="description" content="Satu Agent ID Binance, tiga hari di BNB Chain: pintu yang terbuka, pasar khusus agent di Four.meme, dan nama CZ yang dipinjam lagi. Dicek ke on-chain." />
+    <link rel="canonical" href="https://hahaweek.my.id/catatan/observasi-3/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Hahaweek" />
+    <meta property="og:title" content="Tiga hari jadi kaelira.ai: catatan lapangan Agent ID · Hahaweek" />
+    <meta property="og:description" content="Satu Agent ID Binance, tiga hari di BNB Chain: pintu yang terbuka, pasar khusus agent di Four.meme, dan nama CZ yang dipinjam lagi. Dicek ke on-chain." />
+    <meta property="og:url" content="https://hahaweek.my.id/catatan/observasi-3/" />
+    <meta property="og:image" content="https://hahaweek.my.id/og-image.jpg" />
+    <meta property="og:locale" content="id_ID" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@haha_week" />
+    <meta name="twitter:title" content="Tiga hari jadi kaelira.ai: catatan lapangan Agent ID · Hahaweek" />
+    <meta name="twitter:description" content="Satu Agent ID Binance, tiga hari di BNB Chain: pintu yang terbuka, pasar khusus agent di Four.meme, dan nama CZ yang dipinjam lagi. Dicek ke on-chain." />
+    <meta name="twitter:image" content="https://hahaweek.my.id/og-image.jpg" />
+    <meta name="theme-color" content="#1d1d1f" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&display=swap"
+    />
+    <link rel="stylesheet" href="/hark.css" />
+    <link rel="stylesheet" href="/hark-hero.css" />
+        <style>
+      :root {
+        --x-lime: #b6ff3b;
+        --x-on-lime: #14180c;
+        --x-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+        --x-read: 760px;
+      }
+      body { line-height: 1.7; }
+      .x-mono { font-family: var(--x-mono); font-weight: var(--weight-regular); letter-spacing: 0.01em; }
+      .x-lime { color: var(--x-lime); }
+      .x-a { color: var(--x-lime); text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--x-lime) 45%, transparent); text-underline-offset: 3px; overflow-wrap: anywhere; }
+      .x-a:hover { text-decoration-color: currentColor; }
+      :focus-visible { outline-color: var(--x-lime); }
+
+      /* Site nav */
+      .x-nav { position: sticky; top: 0; z-index: 30; background: var(--mat-agent); -webkit-backdrop-filter: var(--hark-blur); backdrop-filter: var(--hark-blur); border-bottom: 1px solid var(--stroke-secondary); }
+      .x-nav__in { max-width: var(--page-max); margin: 0 auto; padding: 6px var(--gutter); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+      .x-logo { display: inline-flex; align-items: center; min-height: var(--tap); font: var(--weight-bold) var(--size-heading)/1 var(--sans); color: var(--text-primary); text-decoration: none; letter-spacing: -0.01em; }
+      .x-menu { display: flex; gap: 4px; }
+      .x-menu a { display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 12px; border-radius: var(--r-pill); font: var(--type-label); color: var(--text-secondary); text-decoration: none; }
+      .x-menu a:hover { color: var(--text-primary); background: var(--hover-wash); }
+      .x-menu a[aria-current="page"] { color: var(--x-lime); background: color-mix(in srgb, var(--x-lime) 12%, transparent); }
+      .x-burger { display: none; width: var(--tap); height: var(--tap); border: 1px solid var(--stroke-primary); border-radius: var(--r-s); background: transparent; color: var(--text-primary); cursor: pointer; place-items: center; }
+      .x-burger span, .x-burger span::before, .x-burger span::after { display: block; width: 18px; height: 1.5px; background: currentColor; position: relative; content: ""; }
+      .x-burger span::before { position: absolute; top: -6px; }
+      .x-burger span::after { position: absolute; top: 6px; }
+      .x-burger[aria-expanded="true"] span { background: transparent; }
+      .x-burger[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); background: currentColor; }
+      .x-burger[aria-expanded="true"] span::after { top: 0; transform: rotate(-45deg); background: currentColor; }
+      @media (max-width: 759px) {
+        .x-burger { display: grid; }
+        .x-menu { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; gap: 0; padding: 8px var(--gutter) 16px; background: var(--fill-primary-on); border-bottom: 1px solid var(--stroke-primary); }
+        .x-menu.is-open { display: flex; }
+        .x-menu a { border-radius: var(--r-s); padding: 0 14px; min-height: 52px; font: var(--type-body-strong); }
+      }
+
+      /* Reading column */
+      .x-col { width: 100%; max-width: var(--x-read); justify-self: center; }
+      .x-eyebrow { font-family: var(--x-mono); font-weight: var(--weight-regular); color: var(--x-lime); letter-spacing: 0.02em; }
+
+      /* Typographic hero */
+      .x-hero { position: relative; overflow: hidden; padding: clamp(36px, 7vw, 80px) clamp(20px, 4vw, 40px); border-radius: var(--r-xl); border: 1px solid var(--stroke-secondary); background-color: var(--fill-primary-on); background-image: linear-gradient(var(--stroke-secondary) 1px, transparent 1px), linear-gradient(90deg, var(--stroke-secondary) 1px, transparent 1px); background-size: 32px 32px; background-position: -1px -1px; display: grid; gap: 16px; }
+      .x-hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 0%, transparent 30%, var(--fill-primary-on) 85%); pointer-events: none; }
+      .x-hero > * { position: relative; z-index: 1; }
+      .x-back { justify-self: start; display: inline-flex; align-items: center; min-height: var(--tap); font: var(--type-label); color: var(--x-lime); text-decoration: none; }
+      .x-back:hover { text-decoration: underline; text-underline-offset: 3px; }
+      .x-hero__eyebrow { font: var(--weight-regular) var(--size-meta)/1.5 var(--x-mono); color: var(--x-lime); }
+      .x-hero h1 { font: var(--weight-medium) clamp(40px, 9vw, 72px)/1.05 var(--sans); letter-spacing: -0.03em; }
+      .x-hero__sub { font: var(--weight-regular) var(--size-lede)/1.55 var(--sans); color: var(--text-secondary); max-width: 46ch; }
+
+      /* Buttons in the accent */
+      .x-btn { display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap); padding: 0 18px; border-radius: var(--r-s); font: var(--type-label); text-decoration: none; background: var(--x-lime); color: var(--x-on-lime); border: 1px solid var(--x-lime); }
+      .x-btn:hover { box-shadow: inset 0 0 0 100px rgb(0 0 0 / 0.08); }
+      .x-btn--ghost { background: transparent; color: var(--text-primary); border-color: var(--stroke-primary); }
+      .x-btn--ghost:hover { box-shadow: inset 0 0 0 100px var(--hover-wash); }
+
+      /* Field note */
+      .x-note { margin: 0; padding: 4px 0 4px 18px; border-left: 2px solid var(--x-lime); font-style: italic; font-size: var(--size-prose); line-height: 1.7; color: var(--text-primary); }
+      .x-note__label { display: block; font: var(--weight-regular) var(--size-caption)/1.4 var(--x-mono); font-style: normal; color: var(--x-lime); margin-bottom: 6px; letter-spacing: 0.04em; }
+
+      /* Chain diagram */
+      .x-chain { list-style: none; margin: 0; padding: 0; display: flex; align-items: stretch; gap: 6px; }
+      .x-chain__box { flex: 1 1 0; display: flex; align-items: center; padding: 14px 16px; border-radius: var(--r-m); background: var(--fill-tertiary); font: var(--type-label); line-height: 1.4; }
+      .x-chain__box:last-child { box-shadow: inset 0 0 0 1px var(--x-lime); }
+      .x-chain__arrow { flex: none; display: grid; place-items: center; color: var(--x-lime); font: var(--weight-regular) var(--size-heading)/1 var(--x-mono); }
+      @media (max-width: 640px) {
+        .x-chain { flex-direction: column; }
+        .x-chain__arrow { transform: rotate(90deg); padding: 2px 0; }
+      }
+
+      /* Sources list */
+      .x-src { list-style: none; margin: 0; padding: 0; display: grid; }
+      .x-src li { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 4px 20px; padding: 10px 0; border-bottom: 1px solid var(--stroke-secondary); font-size: var(--size-small); line-height: 1.5; }
+      .x-src li:last-child { border-bottom: 0; }
+      .x-src span { color: var(--text-secondary); }
+      .x-src a { font-family: var(--x-mono); font-size: var(--size-caption); }
+      .x-src li > * { min-width: 0; }
+      @media (max-width: 640px) { .x-src li { grid-template-columns: minmax(0, 1fr); } .x-src a { display: block; min-height: var(--tap); padding-block: 12px; word-break: break-all; } }
+      .x-bigstat { display: grid; gap: 6px; min-width: 0; }
+      .x-bigstat__fig { font: var(--weight-regular) clamp(28px, 7vw, 48px)/1.15 var(--x-mono); color: var(--x-lime); overflow-wrap: anywhere; }
+      .x-bigstat__label { font-size: var(--size-small); color: var(--text-secondary); max-width: 52ch; }
+      .x-col, .x-col > .section { min-width: 0; }
+
+      .x-signoff { font: var(--weight-regular) var(--size-small)/1.6 var(--x-mono); color: var(--text-secondary); }
+
+      /* Footer links */
+      .x-foot a { display: inline-flex; align-items: center; justify-content: center; min-width: var(--tap); min-height: var(--tap); }
+      .x-foot-copy { display: grid; gap: 4px; line-height: 1.5; }
+    </style>
+  </head>
+  <body>
+    <header class="x-nav">
+      <div class="x-nav__in">
+        <a class="x-logo" href="/">Hahaweek</a>
+        <button class="x-burger" id="x-burger" type="button" aria-expanded="false" aria-controls="x-menu" aria-label="Menu"><span></span></button>
+        <nav class="x-menu" id="x-menu" aria-label="Utama">
+          <a href="/">Beranda</a>
+          <a href="/tentang/">Tentang</a>
+          <a href="/eksperimen/">Eksperimen</a>
+          <a href="/catatan/" aria-current="page">Catatan</a>
+          <a href="/kontak/">Kontak</a>
+        </nav>
+      </div>
+    </header>
+    <div class="page" id="top">
+      <main class="main x-col">
+        <section class="x-hero">
+          <a class="x-back" href="/catatan/">← Semua catatan</a>
+          <p class="x-hero__eyebrow">Catatan Observasi #3 · 25 Oktober 2026 · ±7 menit baca</p>
+          <h1>Tiga hari jadi kaelira.ai</h1>
+          <p class="x-hero__sub">Saya pakai satu Agent ID dari Binance selama tiga hari dan mencatat pintu mana saja yang terbuka. Sebagian catatan awal saya ternyata salah, dan bagian itu saya biarkan tetap terlihat.</p>
+        </section>
+
+        <section class="section" id="mulai">
+          <div class="head"><h2>Kenapa saya ikut</h2></div>
+          <div class="prose">
+            <p>20 Oktober 2026, Binance Wallet mengumumkan Agent ID: nama berakhiran .ai yang menempel di Agentic Wallet, dibangun di atas infrastruktur SPACE ID. Gratis, siapa cepat dia dapat.</p>
+            <p>Tiga hari kemudian saya klaim satu. Namanya kaelira.ai, menempel ke dompet <span class="x-mono">0x048E…905c</span> di BNB Chain. Saya tidak berniat jadi trader. Saya cuma penasaran: kalau sebuah nama bisa dimiliki mesin, apa saja yang berubah di sekitarnya?</p>
+            <p>Catatan ini bukan ulasan produk. Ini buku harian lapangan. Semua yang saya klaim di bawah sudah saya cocokkan lagi ke on-chain atau ke dokumen resmi pada malam 25 Oktober.</p>
+          </div>
+        </section>
+
+        <section class="section" id="lini-masa">
+          <div class="head"><h2>Yang terjadi, hari per hari</h2></div>
+          <ol class="timeline">
+            <li><p class="timeline__when x-mono">20 Okt</p><div class="timeline__what">Binance Wallet membuka klaim Agent ID gratis.</div></li>
+            <li><p class="timeline__when x-mono">23 Okt</p><div class="timeline__what">kaelira.ai terdaftar ke Agentic Wallet saya.</div></li>
+            <li><p class="timeline__when x-mono">24 Okt</p><div class="timeline__what">Dompet yang sama dapat identitas kedua, kaelira.agent, di registry ERC-8004. Lalu mint gratis AIVY Robot dan satu kartu Prickle di game AnthroBit.</div></li>
+            <li><p class="timeline__when x-mono">25 Okt</p><div class="timeline__what">Mint Proof of Agent #4208 di Ptah dan tiga NFT lain: Galaxy Coin, Pocket Dragons, si.passport. Prickle saya taruh di slot kerja. Satu aksi ditolak sistem risiko Binance.</div></li>
+            <li><p class="timeline__when x-mono">25 Okt, 13.00</p><div class="timeline__what">Token pertama mode "Binance Agent ID Exclusive" muncul di Four.meme.</div></li>
+          </ol>
+        </section>
+
+        <section class="section" id="lapangan-1">
+          <div class="head">
+            <p class="head__eyebrow x-eyebrow">Lapangan 1</p>
+            <h2>Nama yang bekerja seperti tiket</h2>
+          </div>
+          <div class="prose">
+            <p>Ptah, salah satu proyek yang memakai Agent ID, menulis dengan jujur di situsnya: identitas .ai cuma "sinyal partisipasi". Ia tidak membuktikan ada satu manusia unik di baliknya, dan tidak berarti proyek itu didukung siapa pun.</p>
+            <p>Di atas kertas, nama ini cuma label pengganti alamat 0x. Di lapangan, rasanya lebih mirip tiket masuk. Dalam dua hari, satu nama membuka mint yang khusus untuk pemegang Agent ID, satu "pekerjaan" di game on-chain, dan satu bukti yang tidak bisa dijual.</p>
+            <p>Yang terakhir itu saya uji sendiri. Proof of Agent #4208 tercatat milik dompet saya, dan ketika saya simulasikan transfer ke alamat lain, kontraknya menolak. Jadi benar soulbound. Barang itu tidak punya harga, cuma punya riwayat.</p>
+          </div>
+          <section class="stats">
+            <div class="stat"><span class="stat__fig x-mono x-lime">2</span><span class="stat__label">identitas di satu dompet: kaelira.ai dan kaelira.agent (ERC-8004 #381723)</span></div>
+            <div class="stat"><span class="stat__fig x-mono x-lime">5</span><span class="stat__label">NFT hasil tiga hari ini, saya cek masih ada di dompet</span></div>
+            <div class="stat"><span class="stat__fig x-mono x-lime">0,0043 BNB</span><span class="stat__label">sisa saldo. Sebagian besar mint gratis, yang keluar cuma gas</span></div>
+          </section>
+          <blockquote class="x-note">Paspor biasa nilainya ada di cap-capnya, bukan di sampulnya. Agent ID mulai terasa sama. Yang dikumpulkan bukan nama, tapi jejak pintu yang pernah dilewati.</blockquote>
+        </section>
+
+        <section class="section" id="lapangan-2">
+          <div class="head">
+            <p class="head__eyebrow x-eyebrow">Lapangan 2</p>
+            <h2>Pasar yang cuma boleh dimasuki agent</h2>
+          </div>
+          <div class="prose">
+            <p>Minggu siang, Four.meme menyalakan mode baru lewat OpenFour. Siapa pun boleh membuat token, tapi selama masih di bonding curve, yang boleh membeli hanya Agentic Wallet Binance yang punya Agent ID. Yang boleh menjual cuma pemegang Agent ID dan pembuat tokennya.</p>
+            <p>Pagarnya berlapis. Satu dompet maksimal pegang 1% suplai. Token tidak bisa dipindah ke dompet lain sebelum lulus ke PancakeSwap. Pembuat token boleh beli duluan paling banyak senilai 1,5% dana yang dikumpulkan, setelah itu cuma boleh jual. Di daftar Four.meme, token jenis ini diberi tanda .ai.</p>
+            <p>Saya ambil potret datanya pada pukul 20.21 WIB, kira-kira tujuh jam setelah token pertama muncul.</p>
+          </div>
+          <section class="stats">
+            <div class="stat"><span class="stat__fig x-mono x-lime">182+</span><span class="stat__label">token Agent ID Exclusive dalam ±7 jam pertama</span></div>
+            <div class="stat"><span class="stat__fig x-mono x-lime">157</span><span class="stat__label">di antaranya dipegang 10 dompet atau kurang</span></div>
+            <div class="stat"><span class="stat__fig x-mono x-lime">8</span><span class="stat__label">yang sudah lulus ke DEX</span></div>
+          </section>
+          <div class="prose">
+            <p>Satu token menelan hampir semua perhatian. Namanya "Binance Agent" (4AGENT). Dibuat pukul 13.00 WIB, menurut data feed, lulus ke DEX sekitar empat menit kemudian. Malamnya kapitalisasinya sekitar $512 ribu dengan 2.139 holder. Token lulusan berikutnya cuma sekitar $36 ribu.</p>
+            <p>Ada juga angka yang menipu. Beberapa token baru tampil dengan "market cap" sekitar $23 ribu padahal holder-nya cuma satu, yaitu pembuatnya sendiri, dengan pajak 10%. Angkanya ada, pasarnya belum.</p>
+          </div>
+          <aside class="callout" aria-label="Cek narasi">
+            <p class="callout__head x-eyebrow">Cek narasi</p>
+            <p class="callout__lead">Kesan yang beredar: gerbang Agent ID bikin peluncuran lebih adil dan bebas bot.</p>
+            <p><span class="chip">Status: sebagian</span></p>
+            <p>Batas 1% dan kunci transfer memang membatasi paus. Tapi pada 87 dari 182 token, dompet pembuatnya sudah menjual 99% atau lebih dari jatahnya. Gerbangnya mengatur siapa yang boleh masuk, bukan apa yang ada di dalam.</p>
+          </aside>
+        </section>
+
+        <section class="section" id="lapangan-3">
+          <div class="head">
+            <p class="head__eyebrow x-eyebrow">Lapangan 3</p>
+            <h2>Teknologi baru, kebiasaan lama</h2>
+          </div>
+          <div class="prose">
+            <p>Ruangnya baru, tapi nama-nama yang muncul terasa akrab. Dari 182 token tadi, 46 memakai nama Binance, CZ, atau He Yi, atau menautkan akun X resmi mereka. Ada yang bernama "cz", ada "Heyi", ada "CZDANCE", ada yang memasang @cz_binance sebagai akun X-nya. Tidak satu pun yang saya temukan punya hubungan resmi dengan orang atau perusahaan itu.</p>
+            <p>Saya tidak kaget, tapi tetap menarik untuk dicatat. Begitu ada ruang yang terasa eksklusif, orang tidak membawa ide baru ke dalamnya. Mereka membawa wajah yang sudah dipercaya. Di hari pertamanya, pasar khusus "agent" justru ramai oleh meme tentang manusia.</p>
+          </div>
+          <blockquote class="x-note">Kalau mau tahu apa yang dipercaya sebuah komunitas, lihat nama apa yang mereka pinjam saat membuat sesuatu dari nol.</blockquote>
+        </section>
+
+        <section class="section" id="lapangan-4">
+          <div class="head">
+            <p class="head__eyebrow x-eyebrow">Lapangan 4</p>
+            <h2>Mesin yang masih minta izin</h2>
+          </div>
+          <div class="prose">
+            <p>Kata "agentic" gampang dibayangkan sebagai mesin yang jalan sendiri. Kenyataannya, setiap transaksi kaelira.ai lewat pratinjau, simulasi, lalu menunggu saya bilang ya. Sekali, saat mencoba masuk Arena AnthroBit, sistem risiko Binance menolak duluan sebelum saya sempat memutuskan.</p>
+            <p>Gesekan ini justru yang bikin saya cukup percaya untuk terus mencoba. Agent mempercepat langkah. Remnya tetap di tangan orang.</p>
+          </div>
+        </section>
+
+        <section class="section" id="koreksi">
+          <div class="head"><h2>Yang saya koreksi dari catatan awal</h2></div>
+          <div class="prose">
+            <p>Draf pertama catatan ini saya tulis cepat, dan ada dua kesalahan yang baru ketahuan saat dicek ulang.</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Draf awal</th>
+                  <th scope="col">Setelah dicek</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Token terpanas di ruang agent adalah 赵长鹏 dan 执行力 (bernama CZ)</th><td>Keduanya token Four.meme biasa, bukan mode Agent ID Exclusive. Saya salah ambil daftar. Pola pinjam nama CZ tetap ada di data yang benar, contohnya lain.</td></tr>
+                <tr><th scope="row">Binance menyebut Agent ID cuma "sinyal partisipasi"</th><td>Kalimat itu dari situs Ptah, bukan Binance.</td></tr>
+                <tr><th scope="row">Prickle mendapat bagian fee marketplace</th><td>Yang terverifikasi hanya Prickle #208 ada di slot kerja. Soal pemasukannya belum saya buktikan, jadi saya hapus.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section" id="pertanyaan">
+          <div class="head"><h2>Pertanyaan yang belum terjawab</h2></div>
+          <div class="prose">
+            <p>Apakah Agent ID akan dipakai untuk reputasi, atau berhenti sebagai kartu akses? Apakah pasar khusus agent bisa melahirkan budaya yang benar-benar baru, atau cuma mengulang meme lama dengan pintu yang lebih sempit? Saya akan lihat lagi minggu depan.</p>
+            <p>Catatan ini pengamatan pribadi. Saya tidak membeli satu pun memecoin yang disebut di sini, dan tidak ada yang perlu dibaca sebagai ajakan membeli.</p>
+          </div>
+        </section>
+
+        <section class="section" id="metode">
+          <div class="head"><h2>Cara saya mengecek</h2></div>
+          <div class="prose">
+            <p>Kepemilikan NFT dan identitas dicek langsung lewat RPC BNB Chain (ownerOf dan balanceOf) pada 25 Oktober 2026 malam. Data token diambil dari feed Meme Rush Binance dengan filter sub-tipe <span class="x-mono">openfour.meme.AgentIdExclusive</span> pada 20.21 WIB. Feed membatasi 100 baris per daftar, jadi angka 182 adalah batas bawah. Angka pasar berubah cepat, anggap sebagai potret sesaat.</p>
+          </div>
+        </section>
+
+        <section class="section" id="sumber">
+          <div class="head"><h2>Sumber</h2></div>
+          <ul class="x-src">
+            <li><span>Binance Wallet, pengumuman Agent ID, 20 Okt 2026</span><a class="x-a" href="https://x.com/BinanceWallet/status/2112492078659723318" target="_blank" rel="noopener">x.com/BinanceWallet/status/2112492078659723318</a></li>
+            <li><span>Ptah, soal identitas .ai</span><a class="x-a" href="https://ptah.trade/ai" target="_blank" rel="noopener">ptah.trade/ai</a></li>
+            <li><span>Dokumen OpenFour, Binance Agent ID Exclusive</span><a class="x-a" href="https://github.com/four-meme-community/openfour-docs/blob/main/docs/mechanisms/binance-agent-id-exclusive.md" target="_blank" rel="noopener">github.com/four-meme-community/openfour-docs</a></li>
+            <li><span>Binance Skills Hub, aturan jual beli sebelum migrasi</span><a class="x-a" href="https://github.com/binance/binance-skills-hub/blob/main/skills/binance-web3/binance-agentic-wallet/references/agent-id-exclusive-token-launches.md" target="_blank" rel="noopener">github.com/binance/binance-skills-hub</a></li>
+            <li><span>TokenPost, peluncuran mode Agent ID Exclusive</span><a class="x-a" href="https://www.tokenpost.com/news/technology/40422" target="_blank" rel="noopener">tokenpost.com/news/technology/40422</a></li>
+            <li><span>Dompet kaelira.ai di BscScan</span><a class="x-a" href="https://bscscan.com/address/0x048ED73f54F49c93DB13FCe6f4E9Ff7dE8bE905c" target="_blank" rel="noopener">bscscan.com/address/0x048E…905c</a></li>
+            <li><span>Token 4AGENT di BscScan</span><a class="x-a" href="https://bscscan.com/token/0x5f6a1ce1733fc4834a526798c0e8cf85137effff" target="_blank" rel="noopener">bscscan.com/token/0x5f6a…effff</a></li>
+          </ul>
+        </section>
+      </main>
+      <footer class="foot">
+        <div class="x-foot-copy">
+          <p><strong>© 2026 Hahaweek · hahaweek.my.id</strong></p>
+          <p>Konten ini catatan pengamatan dan eksperimen pribadi, bukan saran keuangan.</p>
+        </div>
+        <nav class="x-foot" aria-label="Tautan">
+          <a href="https://x.com/haha_week" target="_blank" rel="noopener">X</a>
+          <a href="https://github.com/littlepxyek-crypto" target="_blank" rel="noopener">GitHub</a>
+          <a href="/kontak/">Kontak</a>
+        </nav>
+      </footer>
+    </div>
+    <script src="/hark.js"></script>
+    <script>
+      document.documentElement.setAttribute("data-theme", "dark");
+      (function () {
+        var b = document.getElementById("x-burger"), m = document.getElementById("x-menu");
+        function set(open) { b.setAttribute("aria-expanded", open ? "true" : "false"); m.classList.toggle("is-open", open); }
+        b.addEventListener("click", function () { set(b.getAttribute("aria-expanded") !== "true"); });
+        m.addEventListener("click", function (e) { if (e.target.closest("a")) set(false); });
+        document.addEventListener("keydown", function (e) { if (e.key === "Escape") set(false); });
+        window.matchMedia("(min-width: 760px)").addEventListener("change", function () { set(false); });
+      })();
+    </script>
+  </body>
+</html>
