@@ -159,7 +159,8 @@
       .x-rules li::before { content: "!"; font: var(--weight-regular) var(--size-caption)/1 var(--x-mono); width: 22px; height: 22px; margin-top: 3px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--x-accent); color: var(--x-accent); }
       .x-rules a, .x-link { color: var(--x-accent); text-underline-offset: 3px; }
       @media (max-width: 599px) {
-        .x-rules a, .x-link { display: inline-flex; align-items: center; min-height: var(--tap); margin: -10px 0; vertical-align: middle; }
+        .x-rules a { display: inline-block; padding-block: 10px; margin-block: -10px; }
+        .x-link { display: inline-flex; align-items: center; min-height: var(--tap); margin: -10px 0; vertical-align: middle; }
       }
 
       /* Footer */
@@ -215,9 +216,9 @@
           <div class="x-card">
             <p class="x-eyebrow">Sebelum kirim pesan</p>
             <ul class="x-rules">
-              <li>Aku tidak pernah minta password, seed phrase, keystore, atau API key.</li>
-              <li>Aku tidak menawarkan investasi atau jasa kelola dana.</li>
-              <li>Hati-hati akun palsu yang mengaku Hahaweek; akun resminya cuma <a href="https://x.com/haha_week" target="_blank" rel="noopener">@haha_week</a>.</li>
+              <li><span>Aku tidak pernah minta password, seed phrase, keystore, atau API key.</span></li>
+              <li><span>Aku tidak menawarkan investasi atau jasa kelola dana.</span></li>
+              <li><span>Hati-hati akun palsu yang mengaku Hahaweek; akun resminya cuma <a href="https://x.com/haha_week" target="_blank" rel="noopener">@haha_week</a>.</span></li>
             </ul>
           </div>
         </div>
