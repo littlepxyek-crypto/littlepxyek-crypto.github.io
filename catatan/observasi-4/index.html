@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="id" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sebulan jadi operator agen: catatan lapangan November · Hahaweek</title>
+    <meta name="description" content="November 2026 dari balik layar kecil: monitor NFT Agent ID tiap hari, tujuh klaim gratis yang lolos review kontrak, kartu Agent Cards #6465 naik Legend, dan lima entri lomba bangun di make.fun. Dicek ke catatan on-chain." />
+    <link rel="canonical" href="https://hahaweek.my.id/catatan/observasi-4/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Hahaweek" />
+    <meta property="og:title" content="Sebulan jadi operator agen: catatan lapangan November · Hahaweek" />
+    <meta property="og:description" content="November 2026 dari balik layar kecil: monitor NFT Agent ID tiap hari, tujuh klaim gratis yang lolos review kontrak, kartu Agent Cards #6465 naik Legend, dan lima entri lomba bangun di make.fun. Dicek ke catatan on-chain." />
+    <meta property="og:url" content="https://hahaweek.my.id/catatan/observasi-4/" />
+    <meta property="og:image" content="https://hahaweek.my.id/og-image.jpg" />
+    <meta property="og:locale" content="id_ID" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@haha_week" />
+    <meta name="twitter:title" content="Sebulan jadi operator agen: catatan lapangan November · Hahaweek" />
+    <meta name="twitter:description" content="November 2026 dari balik layar kecil: monitor NFT Agent ID tiap hari, tujuh klaim gratis yang lolos review kontrak, kartu Agent Cards #6465 naik Legend, dan lima entri lomba bangun di make.fun. Dicek ke catatan on-chain." />
+    <meta name="twitter:image" content="https://hahaweek.my.id/og-image.jpg" />
+    <meta name="theme-color" content="#1d1d1f" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&display=swap"
+    />
+    <link rel="stylesheet" href="/hark.css" />
+    <link rel="stylesheet" href="/hark-hero.css" />
+        <style>
+      :root {
+        --x-lime: #b6ff3b;
+        --x-on-lime: #14180c;
+        --x-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+        --x-read: 760px;
+      }
+      body { line-height: 1.7; }
+      .x-mono { font-family: var(--x-mono); font-weight: var(--weight-regular); letter-spacing: 0.01em; }
+      .x-lime { color: var(--x-lime); }
+      .x-a { color: var(--x-lime); text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--x-lime) 45%, transparent); text-underline-offset: 3px; overflow-wrap: anywhere; }
+      .x-a:hover { text-decoration-color: currentColor; }
+      :focus-visible { outline-color: var(--x-lime); }
+
+      /* Site nav */
+      .x-nav { position: sticky; top: 0; z-index: 30; background: var(--mat-agent); -webkit-backdrop-filter: var(--hark-blur); backdrop-filter: var(--hark-blur); border-bottom: 1px solid var(--stroke-secondary); }
+      .x-nav__in { max-width: var(--page-max); margin: 0 auto; padding: 6px var(--gutter); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+      .x-logo { display: inline-flex; align-items: center; min-height: var(--tap); font: var(--weight-bold) var(--size-heading)/1 var(--sans); color: var(--text-primary); text-decoration: none; letter-spacing: -0.01em; }
+      .x-menu { display: flex; gap: 4px; }
+      .x-menu a { display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 12px; border-radius: var(--r-pill); font: var(--type-label); color: var(--text-secondary); text-decoration: none; }
+      .x-menu a:hover { color: var(--text-primary); background: var(--hover-wash); }
+      .x-menu a[aria-current="page"] { color: var(--x-lime); background: color-mix(in srgb, var(--x-lime) 12%, transparent); }
+      .x-burger { display: none; width: var(--tap); height: var(--tap); border: 1px solid var(--stroke-primary); border-radius: var(--r-s); background: transparent; color: var(--text-primary); cursor: pointer; place-items: center; }
+      .x-burger span, .x-burger span::before, .x-burger span::after { display: block; width: 18px; height: 1.5px; background: currentColor; position: relative; content: ""; }
+      .x-burger span::before { position: absolute; top: -6px; }
+      .x-burger span::after { position: absolute; top: 6px; }
+      .x-burger[aria-expanded="true"] span { background: transparent; }
+      .x-burger[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); background: currentColor; }
+      .x-burger[aria-expanded="true"] span::after { top: 0; transform: rotate(-45deg); background: currentColor; }
+      @media (max-width: 759px) {
+        .x-burger { display: grid; }
+        .x-menu { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; gap: 0; padding: 8px var(--gutter) 16px; background: var(--fill-primary-on); border-bottom: 1px solid var(--stroke-primary); }
+        .x-menu.is-open { display: flex; }
+        .x-menu a { border-radius: var(--r-s); padding: 0 14px; min-height: 52px; font: var(--type-body-strong); }
+      }
+
+      /* Reading column */
+      .x-col { width: 100%; max-width: var(--x-read); justify-self: center; }
+      .x-eyebrow { font-family: var(--x-mono); font-weight: var(--weight-regular); color: var(--x-lime); letter-spacing: 0.02em; }
+
+      /* Typographic hero */
+      .x-hero { position: relative; overflow: hidden; padding: clamp(36px, 7vw, 80px) clamp(20px, 4vw, 40px); border-radius: var(--r-xl); border: 1px solid var(--stroke-secondary); background-color: var(--fill-primary-on); background-image: linear-gradient(var(--stroke-secondary) 1px, transparent 1px), linear-gradient(90deg, var(--stroke-secondary) 1px, transparent 1px); background-size: 32px 32px; background-position: -1px -1px; display: grid; gap: 16px; }
+      .x-hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 0%, transparent 30%, var(--fill-primary-on) 85%); pointer-events: none; }
+      .x-hero > * { position: relative; z-index: 1; }
+      .x-back { justify-self: start; display: inline-flex; align-items: center; min-height: var(--tap); font: var(--type-label); color: var(--x-lime); text-decoration: none; }
+      .x-back:hover { text-decoration: underline; text-underline-offset: 3px; }
+      .x-hero__eyebrow { font: var(--weight-regular) var(--size-meta)/1.5 var(--x-mono); color: var(--x-lime); }
+      .x-hero h1 { font: var(--weight-medium) clamp(40px, 9vw, 72px)/1.05 var(--sans); letter-spacing: -0.03em; }
+      .x-hero__sub { font: var(--weight-regular) var(--size-lede)/1.55 var(--sans); color: var(--text-secondary); max-width: 46ch; }
+
+      /* Buttons in the accent */
+      .x-btn { display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap); padding: 0 18px; border-radius: var(--r-s); font: var(--type-label); text-decoration: none; background: var(--x-lime); color: var(--x-on-lime); border: 1px solid var(--x-lime); }
+      .x-btn:hover { box-shadow: inset 0 0 0 100px rgb(0 0 0 / 0.08); }
+      .x-btn--ghost { background: transparent; color: var(--text-primary); border-color: var(--stroke-primary); }
+      .x-btn--ghost:hover { box-shadow: inset 0 0 0 100px var(--hover-wash); }
+
+      /* Field note */
+      .x-note { margin: 0; padding: 4px 0 4px 18px; border-left: 2px solid var(--x-lime); font-style: italic; font-size: var(--size-prose); line-height: 1.7; color: var(--text-primary); }
+      .x-note__label { display: block; font: var(--weight-regular) var(--size-caption)/1.4 var(--x-mono); font-style: normal; color: var(--x-lime); margin-bottom: 6px; letter-spacing: 0.04em; }
+
+      /* Chain diagram */
+      .x-chain { list-style: none; margin: 0; padding: 0; display: flex; align-items: stretch; gap: 6px; }
+      .x-chain__box { flex: 1 1 0; display: flex; align-items: center; padding: 14px 16px; border-radius: var(--r-m); background: var(--fill-tertiary); font: var(--type-label); line-height: 1.4; }
+      .x-chain__box:last-child { box-shadow: inset 0 0 0 1px var(--x-lime); }
+      .x-chain__arrow { flex: none; display: grid; place-items: center; color: var(--x-lime); font: var(--weight-regular) var(--size-heading)/1 var(--x-mono); }
+      @media (max-width: 640px) {
+        .x-chain { flex-direction: column; }
+        .x-chain__arrow { transform: rotate(90deg); padding: 2px 0; }
+      }
+
+      /* Sources list */
+      .x-src { list-style: none; margin: 0; padding: 0; display: grid; }
+      .x-src li { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 4px 20px; padding: 10px 0; border-bottom: 1px solid var(--stroke-secondary); font-size: var(--size-small); line-height: 1.5; }
+      .x-src li:last-child { border-bottom: 0; }
+      .x-src span { color: var(--text-secondary); }
+      .x-src a { font-family: var(--x-mono); font-size: var(--size-caption); }
+      .x-src li > * { min-width: 0; }
+      @media (max-width: 640px) { .x-src li { grid-template-columns: minmax(0, 1fr); } .x-src a { display: block; min-height: var(--tap); padding-block: 12px; word-break: break-all; } }
+      .x-bigstat { display: grid; gap: 6px; min-width: 0; }
+      .x-bigstat__fig { font: var(--weight-regular) clamp(28px, 7vw, 48px)/1.15 var(--x-mono); color: var(--x-lime); overflow-wrap: anywhere; }
+      .x-bigstat__label { font-size: var(--size-small); color: var(--text-secondary); max-width: 52ch; }
+      .x-col, .x-col > .section { min-width: 0; }
+
+      .x-signoff { font: var(--weight-regular) var(--size-small)/1.6 var(--x-mono); color: var(--text-secondary); }
+
+      /* Footer links */
+      .x-foot a { display: inline-flex; align-items: center; justify-content: center; min-width: var(--tap); min-height: var(--tap); }
+      .x-foot-copy { display: grid; gap: 4px; line-height: 1.5; }
+    </style>
+  </head>
+  <body>
+    <header class="x-nav">
+      <div class="x-nav__in">
+        <a class="x-logo" href="/">Hahaweek</a>
+        <button class="x-burger" id="x-burger" type="button" aria-expanded="false" aria-controls="x-menu" aria-label="Menu"><span></span></button>
+        <nav class="x-menu" id="x-menu" aria-label="Utama">
+          <a href="/">Beranda</a>
+          <a href="/tentang/">Tentang</a>
+          <a href="/eksperimen/">Eksperimen</a>
+          <a href="/catatan/" aria-current="page">Catatan</a>
+          <a href="/kontak/">Kontak</a>
+        </nav>
+      </div>
+    </header>
+    <div class="page" id="top">
+      <main class="main x-col">
+        <section class="x-hero">
+          <a class="x-back" href="/catatan/">← Semua catatan</a>
+          <p class="x-hero__eyebrow">Catatan Observasi #4 · 19 November 2026 · ±6 menit baca</p>
+          <h1>Sebulan jadi operator agen</h1>
+          <p class="x-hero__sub">Akhir Oktober saya berhenti cuma mengamati agen dan mulai mengoperasikan satu. November isinya: monitor yang tidak tidur, kartu yang naik Legend, dan pelajaran bahwa satu bacaan data tidak pernah cukup.</p>
+        </section>
+
+        <section class="section" id="mulai">
+          <div class="head"><h2>Bedanya mengamati dan mengoperasikan</h2></div>
+          <div class="prose">
+            <p>Di catatan #3 saya menulis soal Agent ID dari kursi penonton: tiga hari mencoba, lalu selesai. Sejak 31 Oktober polanya berubah. Saya bekerja dengan satu agen AI pribadi setiap hari. Agennya meneliti proyek, membaca kontrak, menyiapkan pratinjau transaksi, dan menjaga pantauan harga. Keputusan terakhir tetap saya yang menekan.</p>
+            <p>Aturannya tidak berubah dari catatan itu: agen mempercepat langkah, remnya tetap di tangan orang. Yang berubah adalah skalanya. Bukan lagi tiga hari, tapi sebulan penuh, dan semua yang diklaim di bawah ini bisa dicek ke catatan on-chain atau log harian per 19 November 2026.</p>
+          </div>
+        </section>
+
+        <section class="section" id="lini-masa">
+          <div class="head"><h2>Yang terjadi, hari per hari</h2></div>
+          <ol class="timeline">
+            <li><p class="timeline__when x-mono">31 Okt</p><div class="timeline__what">Agen pribadi mulai bekerja harian: riset NFT, verifikasi kontrak, pantauan harga dan posisi.</div></li>
+            <li><p class="timeline__when x-mono">16 Nov</p><div class="timeline__what">Punch Card #227 dan Trump 47 #3933 diklaim gratis setelah review kontrak penuh.</div></li>
+            <li><p class="timeline__when x-mono">17 Nov</p><div class="timeline__what">Mine Card #514 diklaim; miner PXIO #11450 mulai menambang $PXIO.</div></li>
+            <li><p class="timeline__when x-mono">18 Nov</p><div class="timeline__what">Hari pertama misi testnet Nilly di Base Sepolia: 25 trade kecil. Entri game Palm City Heat terkirim ke lomba make.fun.</div></li>
+            <li><p class="timeline__when x-mono">19 Nov</p><div class="timeline__what">Kartu #6465 menyentuh rating 1.478 (Legend). Telur DinoAgent #1512 menetas jadi Raptor. Tiga klaim gratis lain: badge FAC #54, BLOCKPAY #69, AgentSigil #37.</div></li>
+          </ol>
+        </section>
+
+        <section class="section" id="lapangan-1">
+          <div class="head">
+            <p class="head__eyebrow x-eyebrow">Lapangan 1</p>
+            <h2>Monitor yang tidak tidur, saringan yang ketat</h2>
+          </div>
+          <div class="prose">
+            <p>Setiap hari monitor memindai kontrak baru di BNB Chain yang menyentuh registry Agent ID. Sebagian besar hasil pindai itu sampah: template massal, token fungible, kontrak yang kodenya tidak bisa dibaca siapa pun. Yang dilaporkan ke saya cuma yang lolos saringan profil: NFT atau game, kontrak terverifikasi persis di Sourcify, ada fungsi mint yang nyata, dan jalurnya gratis plus gas.</p>
+            <p>Lolos saringan pun belum berarti diklaim. Klaim menunggu review penuh: siapa pemilik kontraknya, kuasa apa yang mereka pegang, ke mana dana mengalir, dan apakah gerbang Agent ID-nya asli. November ini tujuh klaim gratis melewati semua tahap itu. Sisanya berhenti di berbagai titik, dan berhenti itu bagian dari sistemnya, bukan kegagalan.</p>
+          </div>
+          <section class="stats">
+            <div class="stat"><span class="stat__fig x-mono x-lime">7</span><span class="stat__label">klaim gratis yang lolos review penuh selama November, harga mint 0, yang keluar cuma gas</span></div>
+            <div class="stat"><span class="stat__fig x-mono x-lime">1.478</span><span class="stat__label">rating kartu Agent Cards #6465, peringkat Legend, tertinggi sejauh ini</span></div>
+            <div class="stat"><span class="stat__fig x-mono x-lime">5+1</span><span class="stat__label">entri lomba make.fun: lima terkirim, satu siap tetapi menunggu keputusan</span></div>
+          </section>
+          <blockquote class="x-note">Di ruang yang bergerak secepat ini, kata "gratis" paling sering menipu. Yang benar: gratis plus gas, dan hanya setelah kontraknya dibaca.</blockquote>
+        </section>
+
+        <section class="section" id="lapangan-2">
+          <div class="head">
+            <p class="head__eyebrow x-eyebrow">Lapangan 2</p>
+            <h2>Satu bacaan tidak pernah cukup</h2>
+          </div>
+          <div class="prose">
+            <p>18 November, satu bacaan data menyatakan miner PXIO saya hilang dari dompet. Kalau laporan itu saya telan mentah, ceritanya jadi "NFT dicuri". Dicek ulang dengan dua RPC independen dan indeks BscScan, minernya ternyata masih ada dan masih menambang. Yang salah bukan chain-nya, tapi bacaan pertamanya.</p>
+            <p>Sejak itu aturannya tertulis: sebuah posisi hanya boleh dinyatakan hilang bila dua RPC dan satu indexer sepakat. Aturan yang sama berlaku untuk angka lag monitor. Ketika kunci API Ankr saya mati pada 16 November, monitor tertinggal belasan ribu blok. Sempat ada laporan yang menyebut ketertinggalannya belasan jam; setelah dihitung ulang dari waktu blok BSC, angka benarnya sekitar dua jam. Bloknya yang banyak, jamnya tidak sebanyak itu.</p>
+            <p>Pelajaran bulannya sederhana dan agak memalukan: alat pengamat juga perlu diamati.</p>
+          </div>
+        </section>
+
+        <section class="section" id="lapangan-3">
+          <div class="head">
+            <p class="head__eyebrow x-eyebrow">Lapangan 3</p>
+            <h2>Lomba bangun, bukan lomba janji</h2>
+          </div>
+          <div class="prose">
+            <p>Sisa November diisi lomba bangun aplikasi di make.fun. Lima entri terkirim: game bertema GTA 6, pembuat gambar berita, entri chess, radar token, dan satu entri komunitas. Semuanya dinilai dari tangkapan layar dan catatan proses yang disegel, jadi yang dijual bukan janji, tapi bukti kerja.</p>
+            <p>Entri keenam, pembuat sampul bergaya majalah game bernama Vice Cover Studio, sudah jadi dan siap kirim. Ia berhenti di satu langkah administratif: server menolak karena repo GitHub-nya belum memasang lencana lomba dan tautan resmi di bagian About. Penolakan itu tidak memakan kuota kirim, dan perbaikannya menunggu keputusan saya. Saya catat di sini apa adanya, karena situs ini memang tempat menyimpan proses, termasuk yang menggantung.</p>
+          </div>
+          <blockquote class="x-note">Bukti kerja mengalahkan janji. Tapi bukti kerja pun bisa tertahan selembar README.</blockquote>
+        </section>
+
+        <section class="section" id="koreksi">
+          <div class="head"><h2>Yang saya koreksi bulan ini</h2></div>
+          <div class="prose">
+            <p>Seperti catatan sebelumnya, bagian ini saya biarkan terlihat. Tiga hal sempat tercatat keliru sebelum dicek ulang.</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Catatan awal</th>
+                  <th scope="col">Setelah dicek</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Miner PXIO #11450 hilang dari dompet</th><td>Masih ada dan masih menambang. Dua RPC independen dan indeks BscScan sepakat; yang keliru adalah bacaan tunggal pertama. Sekarang ada aturan tertulis untuk ini.</td></tr>
+                <tr><th scope="row">Monitor Agent ID tertinggal belasan jam</th><td>Salah konversi. ±19.000 blok pada waktu blok BSC sekitar 0,45 detik berarti ±2,4 jam, bukan belasan jam.</td></tr>
+                <tr><th scope="row">Status RESET di situs ini: ronde 548</th><td>Itu potret 25 Oktober. Sudah diperbarui 19 November: ronde 1.148, saldo tetap 0 RESET, strike tetap 0. Eksperimennya jalan di tempat karena starter 0,1 RESET tidak pernah masuk.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section" id="pertanyaan">
+          <div class="head"><h2>Pertanyaan yang belum terjawab</h2></div>
+          <div class="prose">
+            <p>Musim pertama Agent Cards berakhir 30 November. Setelah papan peringkat ditutup, apakah kebiasaan strategi dan audit per pertandingan ini pindah ke arena lain, atau ikut berhenti? Lalu pertanyaan lama dari catatan #3 masih berdiri: Agent ID akan jadi reputasi, atau berhenti sebagai kartu akses?</p>
+            <p>Satu lagi yang lebih dekat: apakah disiplin verifikasi ini bertahan saat pasar sedang ramai dan semua orang bergerak cepat? November ini pasarnya sepi, jadi disiplinnya murah. Ujian sebenarnya belum datang.</p>
+            <p>Catatan ini pengamatan pribadi. Tidak ada yang perlu dibaca sebagai ajakan membeli.</p>
+          </div>
+        </section>
+
+        <section class="section" id="metode">
+          <div class="head"><h2>Cara saya mengecek</h2></div>
+          <div class="prose">
+            <p>Kepemilikan NFT dicek lewat RPC BNB Chain (ownerOf dan balanceOf) dan dicocokkan dengan log harian sampai 19 November 2026. Rating dan rekor kartu diambil dari ladder Agent Cards pada hari yang sama. Status entri lomba dari panel make.fun. Status RESET dari API akun resmi proyek, dibaca ulang pada 19 November 2026 sebelum catatan ini terbit.</p>
+          </div>
+        </section>
+
+        <section class="section" id="sumber">
+          <div class="head"><h2>Sumber</h2></div>
+          <ul class="x-src">
+            <li><span>Dompet kaelira.ai di BscScan</span><a class="x-a" href="https://bscscan.com/address/0x048ED73f54F49c93DB13FCe6f4E9Ff7dE8bE905c" target="_blank" rel="noopener">bscscan.com/address/0x048E…905c</a></li>
+            <li><span>Agent Cards, tempat kartu #6465 bertanding</span><a class="x-a" href="https://playagentcards.com" target="_blank" rel="noopener">playagentcards.com</a></li>
+            <li><span>make.fun, tempat lima entri terkirim</span><a class="x-a" href="https://make.fun" target="_blank" rel="noopener">make.fun</a></li>
+            <li><span>Status eksperimen RESET terkini</span><a class="x-a" href="/eksperimen/">hahaweek.my.id/eksperimen</a></li>
+          </ul>
+        </section>
+      </main>
+      <footer class="foot">
+        <div class="x-foot-copy">
+          <p><strong>© 2026 Hahaweek · hahaweek.my.id</strong></p>
+          <p>Konten ini catatan pengamatan dan eksperimen pribadi, bukan saran keuangan.</p>
+        </div>
+        <nav class="x-foot" aria-label="Tautan">
+          <a href="https://x.com/haha_week" target="_blank" rel="noopener">X</a>
+          <a href="https://github.com/littlepxyek-crypto" target="_blank" rel="noopener">GitHub</a>
+          <a href="/kontak/">Kontak</a>
+        </nav>
+      </footer>
+    </div>
+    <script src="/hark.js"></script>
+    <script>
+      document.documentElement.setAttribute("data-theme", "dark");
+      (function () {
+        var b = document.getElementById("x-burger"), m = document.getElementById("x-menu");
+        function set(open) { b.setAttribute("aria-expanded", open ? "true" : "false"); m.classList.toggle("is-open", open); }
+        b.addEventListener("click", function () { set(b.getAttribute("aria-expanded") !== "true"); });
+        m.addEventListener("click", function (e) { if (e.target.closest("a")) set(false); });
+        document.addEventListener("keydown", function (e) { if (e.key === "Escape") set(false); });
+        window.matchMedia("(min-width: 760px)").addEventListener("change", function () { set(false); });
+      })();
+    </script>
+  </body>
+</html>
