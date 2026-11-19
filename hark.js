@@ -158,3 +158,19 @@
   if (doc.readyState === "loading") doc.addEventListener("DOMContentLoaded", start);
   else start();
 })();
+
+/* Site nav (shared by every page): hamburger toggle for the #site-nav pill bar. */
+(function () {
+  var nav = document.getElementById("site-nav");
+  if (!nav) return;
+  var btn = nav.querySelector(".x-nav__toggle");
+  if (!btn) return;
+  function set(open) {
+    nav.classList.toggle("is-open", open);
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    btn.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
+  }
+  btn.addEventListener("click", function () { set(!nav.classList.contains("is-open")); });
+  nav.querySelectorAll(".x-nav__menu a").forEach(function (a) { a.addEventListener("click", function () { set(false); }); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") set(false); });
+})();

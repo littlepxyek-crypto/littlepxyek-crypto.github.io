@@ -687,3 +687,58 @@ tr.is-highlight > :last-child { box-shadow: 12px 0 var(--fill-tertiary); }
 .band img { width: 100%; height: clamp(240px, 40vw, 520px); object-fit: cover; border-radius: var(--r-xl); }
 .band figcaption { font-size: var(--size-caption); color: var(--text-secondary); padding: 10px 4px 0; }
 .is-portrait img { width: auto; max-width: 100%; height: clamp(320px, 48vw, 560px); }
+
+/* @component site-nav */
+:root { --x-lime: #b6ff3b; --x-on-lime: #1d1d1f; }
+.x-nav {
+  position: sticky;
+  top: calc(env(safe-area-inset-top, 0px) + 12px);
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 5px 5px 5px 18px;
+  border-radius: var(--r-pill);
+  background: var(--mat-regular);
+  -webkit-backdrop-filter: var(--hark-blur);
+  backdrop-filter: var(--hark-blur);
+  border: 1px solid var(--stroke-primary);
+  box-shadow: var(--hark-shadow);
+}
+.x-nav__logo { font: var(--weight-bold) var(--size-body)/1 var(--sans); color: var(--text-primary); text-decoration: none; display: inline-flex; align-items: center; min-height: var(--tap); }
+.x-nav__logo span { color: var(--x-lime); }
+.x-nav__menu { display: flex; gap: 2px; margin: 0; padding: 0; list-style: none; }
+.x-nav__menu a {
+  display: flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: var(--r-pill);
+  font: var(--type-label);
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+.x-nav__menu a:hover { color: var(--text-primary); background: var(--hover-wash); }
+.x-nav__menu a[aria-current="page"] { background: var(--x-lime); color: var(--x-on-lime); }
+.x-nav__toggle { display: none; }
+@media (max-width: 719px) {
+  .x-nav { border-radius: var(--r-l); flex-wrap: wrap; }
+  .x-nav__toggle {
+    display: grid;
+    place-items: center;
+    width: var(--tap);
+    height: var(--tap);
+    border: 0;
+    border-radius: 50%;
+    background: var(--fill-tertiary);
+    color: var(--text-primary);
+    cursor: pointer;
+  }
+  .x-nav__toggle svg { display: block; }
+  .x-nav__toggle .x-close, .x-nav.is-open .x-nav__toggle .x-open { display: none; }
+  .x-nav.is-open .x-nav__toggle .x-close { display: block; }
+  .x-nav__menu { display: none; flex-basis: 100%; flex-direction: column; gap: 4px; padding: 8px 13px 8px 0; border-top: 1px solid var(--stroke-secondary); margin-top: 5px; }
+  .x-nav.is-open .x-nav__menu { display: flex; }
+  .x-nav__menu a { min-height: 48px; padding: 0 16px; border-radius: var(--r-s); font: var(--weight-medium) var(--size-prose)/1 var(--sans); }
+}

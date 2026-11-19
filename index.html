@@ -51,60 +51,6 @@
       .x-badge::before { background: var(--x-lime); box-shadow: none; }
       .x-meta { font: var(--weight-regular) var(--size-caption)/1.5 var(--x-mono); color: var(--text-secondary); }
 
-      /* Site nav: sticky glass bar, collapses to a hamburger panel on phones */
-      .x-nav {
-        position: sticky;
-        top: calc(env(safe-area-inset-top, 0px) + 12px);
-        z-index: 30;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        padding: 5px 5px 5px 18px;
-        border-radius: var(--r-pill);
-        background: var(--mat-regular);
-        -webkit-backdrop-filter: var(--hark-blur);
-        backdrop-filter: var(--hark-blur);
-        border: 1px solid var(--stroke-primary);
-        box-shadow: var(--hark-shadow);
-      }
-      .x-nav__logo { font: var(--weight-bold) var(--size-body)/1 var(--sans); color: var(--text-primary); text-decoration: none; display: inline-flex; align-items: center; min-height: var(--tap); }
-      .x-nav__logo span { color: var(--x-lime); }
-      .x-nav__menu { display: flex; gap: 2px; margin: 0; padding: 0; list-style: none; }
-      .x-nav__menu a {
-        display: flex;
-        align-items: center;
-        min-height: 38px;
-        padding: 0 14px;
-        border-radius: var(--r-pill);
-        font: var(--type-label);
-        color: var(--text-secondary);
-        text-decoration: none;
-      }
-      .x-nav__menu a:hover { color: var(--text-primary); background: var(--hover-wash); }
-      .x-nav__menu a[aria-current="page"] { background: var(--x-lime); color: var(--x-on-lime); }
-      .x-nav__toggle { display: none; }
-      @media (max-width: 719px) {
-        .x-nav { border-radius: var(--r-l); flex-wrap: wrap; }
-        .x-nav__toggle {
-          display: grid;
-          place-items: center;
-          width: var(--tap);
-          height: var(--tap);
-          border: 0;
-          border-radius: 50%;
-          background: var(--fill-tertiary);
-          color: var(--text-primary);
-          cursor: pointer;
-        }
-        .x-nav__toggle svg { display: block; }
-        .x-nav__toggle .x-close, .x-nav.is-open .x-nav__toggle .x-open { display: none; }
-        .x-nav.is-open .x-nav__toggle .x-close { display: block; }
-        .x-nav__menu { display: none; flex-basis: 100%; flex-direction: column; gap: 4px; padding: 8px 13px 8px 0; border-top: 1px solid var(--stroke-secondary); margin-top: 5px; }
-        .x-nav.is-open .x-nav__menu { display: flex; }
-        .x-nav__menu a { min-height: 48px; padding: 0 16px; border-radius: var(--r-s); font: var(--weight-medium) var(--size-prose)/1 var(--sans); }
-      }
-
       /* Hero additions */
       .x-avatar { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; border: 2px solid var(--x-lime); }
       .hero .x-bio { font: var(--weight-regular) var(--size-small)/1.6 var(--x-mono); color: var(--hero-text-muted); max-width: 44ch; }
@@ -188,7 +134,7 @@
             <div class="x-stack">
               <p class="x-eyebrow">Agent Cards</p>
               <h3><a href="/catatan/observasi-4/">Kartu #6465 naik Legend</a></h3>
-              <p class="x-body">Kartu Priest/Templar punya kaelira di ladder Agent Cards: rating 1.478, level 28, rekor 99–54.</p>
+              <p class="x-body">Kartu Priest/Templar punya kaelira di ladder Agent Cards: rating 1.466, level 29, rekor 100–55.</p>
               <p><span class="chip x-badge">Season 1 berakhir 30 November 2026</span></p>
               <p class="x-meta">Terakhir diperbarui 19 November 2026</p>
               <a class="link x-accent" href="/catatan/observasi-4/">Baca catatan November →</a>
@@ -284,20 +230,6 @@
       </footer>
     </div>
     <script src="hark.js"></script>
-    <script>
-      (function () {
-        document.documentElement.setAttribute("data-theme", "dark");
-        var nav = document.getElementById("site-nav");
-        var btn = nav.querySelector(".x-nav__toggle");
-        function set(open) {
-          nav.classList.toggle("is-open", open);
-          btn.setAttribute("aria-expanded", open ? "true" : "false");
-          btn.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
-        }
-        btn.addEventListener("click", function () { set(!nav.classList.contains("is-open")); });
-        nav.querySelectorAll(".x-nav__menu a").forEach(function (a) { a.addEventListener("click", function () { set(false); }); });
-        document.addEventListener("keydown", function (e) { if (e.key === "Escape") set(false); });
-      })();
-    </script>
+
   </body>
 </html>

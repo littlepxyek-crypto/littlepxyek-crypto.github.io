@@ -44,57 +44,12 @@
       .main p, .main li { line-height: 1.7; }
       .x-mono { font-family: var(--x-mono); }
 
-      /* Top nav */
-      .x-nav {
-        position: sticky;
-        top: 0;
-        z-index: 30;
-        margin-inline: calc(var(--gutter) * -1);
-        padding: 0 var(--gutter);
-        background: color-mix(in srgb, var(--fill-primary-on) 88%, transparent);
-        -webkit-backdrop-filter: var(--hark-blur);
-        backdrop-filter: var(--hark-blur);
-        border-bottom: 1px solid var(--stroke-secondary);
-      }
-      .x-nav__bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; }
-      .x-logo { font: var(--weight-bold) var(--size-heading)/1 var(--sans); color: var(--text-primary); text-decoration: none; display: inline-flex; align-items: center; min-height: var(--tap); }
-      .x-logo span { color: var(--x-accent); }
-      .x-menu { display: flex; gap: 4px; margin: 0; padding: 0; list-style: none; }
-      .x-menu a {
-        display: inline-flex; align-items: center; min-height: 36px; padding: 6px 12px;
-        border-radius: var(--r-pill); font: var(--type-label); color: var(--text-secondary); text-decoration: none;
-      }
-      .x-menu a:hover { color: var(--text-primary); background: var(--hover-wash); }
-      .x-menu a[aria-current="page"] { color: var(--x-on-accent); background: var(--x-accent); }
-      .x-burger {
-        display: none; width: var(--tap); height: var(--tap); place-items: center;
-        border: 1px solid var(--stroke-primary); border-radius: var(--r-s);
-        background: transparent; color: var(--text-primary); cursor: pointer;
-      }
-      .x-burger span, .x-burger span::before, .x-burger span::after {
-        display: block; width: 18px; height: 1.5px; background: currentColor; position: relative; content: "";
-      }
-      .x-burger span::before { position: absolute; top: -6px; }
-      .x-burger span::after { position: absolute; top: 6px; }
-      .x-nav.is-open .x-burger span { background: transparent; }
-      .x-nav.is-open .x-burger span::before { top: 0; transform: rotate(45deg); background: var(--text-primary); }
-      .x-nav.is-open .x-burger span::after { top: 0; transform: rotate(-45deg); background: var(--text-primary); }
-      @media (max-width: 759px) {
-        .x-burger { display: grid; }
-        .x-menu {
-          display: none; flex-direction: column; gap: 4px;
-          margin-inline: calc(var(--gutter) * -1); padding: 8px var(--gutter) 20px;
-          border-top: 1px solid var(--stroke-secondary);
-        }
-        .x-nav.is-open .x-menu { display: flex; }
-        .x-menu a { display: flex; min-height: var(--tap); padding: 10px 14px; border-radius: var(--r-s); font-size: var(--size-body); }
-      }
-
       /* Accent pieces */
       .x-eyebrow { font: var(--weight-regular) var(--size-caption)/1.3 var(--x-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--x-accent); }
       .hero .hero__eyebrow.x-eyebrow { background: transparent; border: 0; padding: 0; -webkit-backdrop-filter: none; backdrop-filter: none; }
       .hero::after { display: none; }
       .hero { box-shadow: none; border: 1px solid var(--stroke-secondary); border-radius: var(--r-l); }
+      .hero:not(:has(.hero__img)) { background-image: none; }
       .hero__sub { max-width: 52ch; font-weight: var(--weight-regular); line-height: 1.6; color: var(--text-secondary); }
       .btn.x-accent { background: var(--x-accent); color: var(--x-on-accent); border-color: var(--x-accent); font-weight: var(--weight-bold); }
       .btn.x-accent:hover { box-shadow: inset 0 0 0 100px rgb(0 0 0 / 0.08); }
@@ -142,17 +97,20 @@
   <body>
     <div class="page" id="top">
       <header class="x-nav" id="site-nav">
-        <div class="x-nav__bar">
-          <a class="x-logo" href="/">Hahaweek<span>.</span></a>
-          <button class="x-burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Buka menu"><span></span></button>
-        </div>
-        <ul class="x-menu" id="menu">
-          <li><a href="/">Beranda</a></li>
-          <li><a href="/tentang/">Tentang</a></li>
-          <li><a href="/eksperimen/">Eksperimen</a></li>
-          <li><a href="/catatan/" aria-current="page">Catatan</a></li>
-          <li><a href="/kontak/">Kontak</a></li>
-        </ul>
+        <a class="x-nav__logo" href="/">Hahaweek<span>.</span></a>
+        <button class="x-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Buka menu">
+          <svg class="x-open" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 6h14M3 14h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <svg class="x-close" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+        <nav aria-label="Menu utama" style="display:contents">
+          <ul class="x-nav__menu" id="site-menu">
+                <li><a href="/">Beranda</a></li>
+                <li><a href="/tentang/">Tentang</a></li>
+                <li><a href="/eksperimen/">Eksperimen</a></li>
+                <li><a href="/catatan/" aria-current="page">Catatan</a></li>
+                <li><a href="/kontak/">Kontak</a></li>
+          </ul>
+        </nav>
       </header>
 
       <main class="main">
@@ -264,15 +222,6 @@
     <script>
       (function () {
         document.documentElement.setAttribute("data-theme", "dark");
-        var nav = document.getElementById("site-nav"), burger = document.getElementById("burger");
-        burger.addEventListener("click", function () {
-          var open = nav.classList.toggle("is-open");
-          burger.setAttribute("aria-expanded", open ? "true" : "false");
-          burger.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
-        });
-        document.addEventListener("keydown", function (e) {
-          if (e.key === "Escape" && nav.classList.contains("is-open")) { burger.click(); burger.focus(); }
-        });
         var buttons = [].slice.call(document.querySelectorAll(".x-filter"));
         var posts = [].slice.call(document.querySelectorAll(".x-post"));
         buttons.forEach(function (b) {
